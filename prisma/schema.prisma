@@ -1,0 +1,308 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  password   String
+  username   String   @unique
+  avatar     String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  userBooks          User_books[]
+  readedChapters     Readed_chapters[]
+  favoriteBooks      Favorites_books[]
+  favoriteCharacters Favorite_characters[]
+  reviews            Reviews[]
+  readingLists       Reading_list[]
+  quotes             Quotes[]
+
+  @@map("Users")
+}
+
+model Books {
+  id                 String      @id @default(cuid())
+  name               String
+  description        String?
+  cover_image        String?
+  status             BookStatus  @default(ONGOING)
+  current_chapter    Float?
+  total_chapters     Int?
+  total_chapters_rus Int?
+  total_chapters_eng Int?
+  created_at         DateTime    @default(now())
+  updated_at         DateTime    @updatedAt
+
+  userBooks          User_books[]
+  readedChapters     Readed_chapters[]
+  favoriteBooks      Favorites_books[]
+  reviews            Reviews[]
+  readingListItems   Reading_list_items[]
+  chapters           Chapters[]
+  characters         Characters[]
+  quotes             Quotes[]
+
+  authors            Book_authors[]
+  genres             Book_genres[]
+  tags               Book_tags[]
+
+  @@map("Books")
+}
+
+model Authors {
+  id         String   @id @default(cuid())
+  name       String
+  name_eng   String?
+  bio        String?
+  created_at DateTime @default(now())
+
+  books Book_authors[]
+
+  @@map("Authors")
+}
+
+model Genres {
+  id         String   @id @default(cuid())
+  name       String   @unique
+  created_at DateTime @default(now())
+
+  books      Book_genres[]
+  characters Character_genres[]
+
+  @@map("Genres")
+}
+
+model Tags {
+  id         String   @id @default(cuid())
+  name       String   @unique
+  created_at DateTime @default(now())
+
+  books Book_tags[]
+
+  @@map("Tags")
+}
+
+model Characters {
+  id         String   @id @default(cuid())
+  book_id    String
+  name       String
+  created_at DateTime @default(now())
+
+  book               Books                 @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  favoriteCharacters Favorite_characters[]
+  genres             Character_genres[]
+
+  @@map("Characters")
+}
+
+model Chapters {
+  id           String    @id @default(cuid())
+  book_id      String
+  number       Float
+  title        String?
+  release_date DateTime?
+  created_at   DateTime  @default(now())
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([book_id, number])
+  @@map("Chapters")
+}
+
+model User_books {
+  id              String        @id @default(cuid())
+  user_id         String
+  book_id         String
+  status          ReadingStatus @default(PLAN_TO_READ)
+  current_chapter Float         @default(0)
+  personal_rating Int?          // 1-10, личная оценка пользователя
+  started_at      DateTime?
+  finished_at     DateTime?
+  created_at      DateTime      @default(now())
+  updated_at      DateTime      @updatedAt
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id])
+  @@map("User_books")
+}
+
+model Readed_chapters {
+  id             String   @id @default(cuid())
+  user_id        String
+  book_id        String
+  chapter_number Float
+  language       String   // "rus", "eng", "jp", etc.
+  created_at     DateTime @default(now())
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id, chapter_number, language])
+  @@map("Readed_chapters")
+}
+
+model Favorites_books {
+  id         String   @id @default(cuid())
+  user_id    String
+  book_id    String
+  created_at DateTime @default(now())
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id])
+  @@map("Favorites_books")
+}
+
+model Favorite_characters {
+  id           String   @id @default(cuid())
+  user_id      String
+  book_id      String
+  character_id String
+  created_at   DateTime @default(now())
+
+  user      Users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  character Characters @relation(fields: [character_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, character_id])
+  @@map("Favorite_characters")
+}
+
+model Book_authors {
+  book_id   String
+  author_id String
+  role      AuthorRole @default(AUTHOR) // автор, художник, или оба
+
+  book   Books   @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  author Authors @relation(fields: [author_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, author_id])
+  @@map("Book_authors")
+}
+
+model Book_genres {
+  book_id  String
+  genre_id String
+
+  book  Books  @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  genre Genres @relation(fields: [genre_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, genre_id])
+  @@map("Book_genres")
+}
+
+model Book_tags {
+  book_id String
+  tag_id  String
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  tag  Tags  @relation(fields: [tag_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, tag_id])
+  @@map("Book_tags")
+}
+
+model Character_genres {
+  character_id String
+  genre_id     String
+
+  character Characters @relation(fields: [character_id], references: [id], onDelete: Cascade)
+  genre     Genres     @relation(fields: [genre_id], references: [id], onDelete: Cascade)
+
+  @@id([character_id, genre_id])
+  @@map("Character_genres")
+}
+
+model Reviews {
+  id         String   @id @default(cuid())
+  user_id    String
+  book_id    String
+  content    String
+  rating     Int      // 1-10
+  is_spoiler Boolean  @default(false)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id])
+  @@map("Reviews")
+}
+
+model Quotes {
+  id             String   @id @default(cuid())
+  user_id        String
+  book_id        String
+  chapter_id     String?
+  content        String
+  chapter_number Float?
+  created_at     DateTime @default(now())
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@map("Quotes")
+}
+
+model Reading_list {
+  id          String   @id @default(cuid())
+  user_id     String
+  name        String
+  description String?
+  is_public   Boolean  @default(false)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  user  Users                 @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  items Reading_list_items[]
+
+  @@map("Reading_list")
+}
+
+model Reading_list_items {
+  id         String   @id @default(cuid())
+  list_id    String
+  book_id    String
+  priority   Int?     // порядок в списке
+  note       String?  // заметка пользователя
+  created_at DateTime @default(now())
+
+  list Reading_list @relation(fields: [list_id], references: [id], onDelete: Cascade)
+  book Books        @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([list_id, book_id])
+  @@map("Reading_list_items")
+}
+
+enum AuthorRole {
+  AUTHOR   // Автор сценария
+  ARTIST   // Художник
+  BOTH     // Автор и художник
+}
+
+enum BookStatus {
+  ONGOING      // Выходит
+  COMPLETED    // Завершена
+  HIATUS       // На паузе
+  CANCELLED    // Отменена
+  ANNOUNCED    // Анонсирована
+}
+
+enum ReadingStatus {
+  PLAN_TO_READ // Планирую читать
+  READING      // Читаю
+  COMPLETED    // Прочитал
+  ON_HOLD      // Отложил
+  DROPPED      // Бросил
+  REREADING    // Перечитываю
+}
