@@ -1,0 +1,233 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id         Int      @id @default(autoincrement())
+  username   String   @unique
+  email      String   @unique
+  password   String
+  avatar     String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  readedChapters     ReadedChapters[]
+  userBooks          UserBooks[]
+  favoriteBooks      FavoriteBooks[]
+  reviews            Reviews[]
+  quotes             Quotes[]
+  favoriteCharacters FavoriteCharacters[]
+  readingLists       ReadingList[]
+}
+
+model Books {
+  id                 Int      @id @default(autoincrement())
+  name               String   @unique
+  cover_img          String
+  description        String
+  status             String
+  current_chapter    Float
+  total_chapters     Int
+  total_chapters_rus Int
+  total_chapters_eng Int
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
+
+  readedChapters     ReadedChapters[]
+  userBooks          UserBooks[]
+  favoriteBooks      FavoriteBooks[]
+  bookAuthors        BookAuthors[]
+  bookGenres         BookGenres[]
+  bookTags           BookTags[]
+  chapters           Chapters[]
+  reviews            Reviews[]
+  quotes             Quotes[]
+  favoriteCharacters FavoriteCharacters[]
+  readingLists       ReadingList[]
+}
+
+model Authors {
+  id         Int      @id @default(autoincrement())
+  name       String
+  name_eng   String?
+  created_at DateTime @default(now())
+
+  bookAuthors BookAuthors[]
+}
+
+model Genres {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  created_at DateTime @default(now())
+
+  bookGenres BookGenres[]
+}
+
+model Tags {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  created_at DateTime @default(now())
+
+  bookTags BookTags[]
+}
+
+model Characters {
+  id            Int      @id @default(autoincrement())
+  name          String
+  description   String
+  character_img String?
+  created_at    DateTime @default(now())
+
+  quotes             Quotes[]
+  favoriteCharacters FavoriteCharacters[]
+}
+
+model BookAuthors {
+  book_id   Int
+  author_id Int
+  role      String?
+
+  book   Books   @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  author Authors @relation(fields: [author_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, author_id])
+}
+
+model BookGenres {
+  book_id   Int
+  genres_id Int
+
+  book  Books  @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  genre Genres @relation(fields: [genres_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, genres_id])
+}
+
+model BookTags {
+  book_id Int
+  tag_id  Int
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  tag  Tags  @relation(fields: [tag_id], references: [id], onDelete: Cascade)
+
+  @@id([book_id, tag_id])
+}
+
+model ReadedChapters {
+  id         Int      @id @default(autoincrement())
+  book_id    Int
+  user_id    Int
+  number     Float
+  language   String
+  created_at DateTime @default(now())
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([book_id, user_id, number])
+}
+
+model UserBooks {
+  id              Int      @id @default(autoincrement())
+  book_id         Int
+  user_id         Int
+  status          String
+  current_chapter Float
+  personal_rating Int?
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([book_id, user_id])
+}
+
+model FavoriteBooks {
+  id         Int      @id @default(autoincrement())
+  book_id    Int
+  user_id    Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([book_id, user_id])
+}
+
+model Chapters {
+  id           Int       @id @default(autoincrement())
+  book_id      Int
+  number       Float
+  title        String?
+  release_date DateTime?
+  created_at   DateTime  @default(now())
+
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+}
+
+model Reviews {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  book_id    Int
+  content    String
+  rating     Int
+  created_at DateTime @default(now())
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id])
+}
+
+model Quotes {
+  id             Int      @id @default(autoincrement())
+  user_id        Int
+  book_id        Int
+  character_id   Int?
+  content        String
+  chapter_number Float?
+  created_at     DateTime @default(now())
+
+  user      Users       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book      Books       @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  character Characters? @relation(fields: [character_id], references: [id], onDelete: SetNull)
+}
+
+model FavoriteCharacters {
+  id           Int      @id @default(autoincrement())
+  user_id      Int
+  book_id      Int
+  character_id Int
+  created_at   DateTime @default(now())
+
+  user      Users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book      Books      @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  character Characters @relation(fields: [character_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, book_id, character_id])
+}
+
+model ReadingList {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  book_id    Int
+  name       String
+  is_public  Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+}
