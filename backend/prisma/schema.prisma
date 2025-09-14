@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model User {
   id         Int      @id @default(autoincrement())
   username   String   @unique
   email      String   @unique
@@ -22,16 +22,18 @@ model Users {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  readedChapters     ReadedChapters[]
-  userBooks          UserBooks[]
-  favoriteBooks      FavoriteBooks[]
-  reviews            Reviews[]
-  quotes             Quotes[]
-  favoriteCharacters FavoriteCharacters[]
+  readedChapters     ReadedChapter[]
+  userBooks          UserBook[]
+  favoriteBooks      FavoriteBook[]
+  reviews            Review[]
+  quotes             Quote[]
+  favoriteCharacters FavoriteCharacter[]
   readingLists       ReadingList[]
+
+  @@map("Users")
 }
 
-model Books {
+model Book {
   id                 Int      @id @default(autoincrement())
   name               String   @unique
   cover_img          String
@@ -44,87 +46,100 @@ model Books {
   created_at         DateTime @default(now())
   updated_at         DateTime @updatedAt
 
-  readedChapters     ReadedChapters[]
-  userBooks          UserBooks[]
-  favoriteBooks      FavoriteBooks[]
-  bookAuthors        BookAuthors[]
-  bookGenres         BookGenres[]
-  bookTags           BookTags[]
-  chapters           Chapters[]
-  reviews            Reviews[]
-  quotes             Quotes[]
-  favoriteCharacters FavoriteCharacters[]
+  readedChapters     ReadedChapter[]
+  userBooks          UserBook[]
+  favoriteBooks      FavoriteBook[]
+  bookAuthors        BookAuthor[]
+  bookGenres         BookGenre[]
+  bookTags           BookTag[]
+  chapters           Chapter[]
+  reviews            Review[]
+  quotes             Quote[]
+  favoriteCharacters FavoriteCharacter[]
   readingLists       ReadingList[]
+
+  @@map("Books")
 }
 
-model Authors {
+model Author {
   id         Int      @id @default(autoincrement())
   name       String
   name_eng   String?
   created_at DateTime @default(now())
 
-  bookAuthors BookAuthors[]
+  bookAuthors BookAuthor[]
+
+  @@map("Authors")
 }
 
-model Genres {
+model Genre {
   id         Int      @id @default(autoincrement())
   name       String   @unique
   created_at DateTime @default(now())
 
-  bookGenres BookGenres[]
+  bookGenres BookGenre[]
+
+  @@map("Genres")
 }
 
-model Tags {
+model Tag {
   id         Int      @id @default(autoincrement())
   name       String   @unique
   created_at DateTime @default(now())
 
-  bookTags BookTags[]
+  bookTags BookTag[]
+
+  @@map("Tags")
 }
 
-model Characters {
+model Character {
   id            Int      @id @default(autoincrement())
   name          String
   description   String
   character_img String?
   created_at    DateTime @default(now())
 
-  quotes             Quotes[]
-  favoriteCharacters FavoriteCharacters[]
+  quotes             Quote[]
+  favoriteCharacters FavoriteCharacter[]
+
+  @@map("Characters")
 }
 
-model BookAuthors {
+model BookAuthor {
   book_id   Int
   author_id Int
   role      String?
 
-  book   Books   @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  author Authors @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  book   Book   @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  author Author @relation(fields: [author_id], references: [id], onDelete: Cascade)
 
   @@id([book_id, author_id])
+  @@map("BookAuthors")
 }
 
-model BookGenres {
+model BookGenre {
   book_id   Int
   genres_id Int
 
-  book  Books  @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  genre Genres @relation(fields: [genres_id], references: [id], onDelete: Cascade)
+  book  Book  @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  genre Genre @relation(fields: [genres_id], references: [id], onDelete: Cascade)
 
   @@id([book_id, genres_id])
+  @@map("BookGenres")
 }
 
-model BookTags {
+model BookTag {
   book_id Int
   tag_id  Int
 
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  tag  Tags  @relation(fields: [tag_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  tag  Tag  @relation(fields: [tag_id], references: [id], onDelete: Cascade)
 
   @@id([book_id, tag_id])
+  @@map("BookTags")
 }
 
-model ReadedChapters {
+model ReadedChapter {
   id         Int      @id @default(autoincrement())
   book_id    Int
   user_id    Int
@@ -132,13 +147,14 @@ model ReadedChapters {
   language   String
   created_at DateTime @default(now())
 
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@unique([book_id, user_id, number])
+  @@map("ReadedChapters")
 }
 
-model UserBooks {
+model UserBook {
   id              Int      @id @default(autoincrement())
   book_id         Int
   user_id         Int
@@ -148,26 +164,28 @@ model UserBooks {
   created_at      DateTime @default(now())
   updated_at      DateTime @updatedAt
 
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@unique([book_id, user_id])
+  @@map("UserBooks")
 }
 
-model FavoriteBooks {
+model FavoriteBook {
   id         Int      @id @default(autoincrement())
   book_id    Int
   user_id    Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@unique([book_id, user_id])
+  @@map("FavoriteBooks")
 }
 
-model Chapters {
+model Chapter {
   id           Int       @id @default(autoincrement())
   book_id      Int
   number       Float
@@ -175,10 +193,12 @@ model Chapters {
   release_date DateTime?
   created_at   DateTime  @default(now())
 
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@map("Chapters")
 }
 
-model Reviews {
+model Review {
   id         Int      @id @default(autoincrement())
   user_id    Int
   book_id    Int
@@ -186,13 +206,14 @@ model Reviews {
   rating     Int
   created_at DateTime @default(now())
 
-  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
 
   @@unique([user_id, book_id])
+  @@map("Reviews")
 }
 
-model Quotes {
+model Quote {
   id             Int      @id @default(autoincrement())
   user_id        Int
   book_id        Int
@@ -201,23 +222,26 @@ model Quotes {
   chapter_number Float?
   created_at     DateTime @default(now())
 
-  user      Users       @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  book      Books       @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  character Characters? @relation(fields: [character_id], references: [id], onDelete: SetNull)
+  user      User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book      Book       @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  character Character? @relation(fields: [character_id], references: [id], onDelete: SetNull)
+
+  @@map("Quotes")
 }
 
-model FavoriteCharacters {
+model FavoriteCharacter {
   id           Int      @id @default(autoincrement())
   user_id      Int
   book_id      Int
   character_id Int
   created_at   DateTime @default(now())
 
-  user      Users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  book      Books      @relation(fields: [book_id], references: [id], onDelete: Cascade)
-  character Characters @relation(fields: [character_id], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book      Book      @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  character Character @relation(fields: [character_id], references: [id], onDelete: Cascade)
 
   @@unique([user_id, book_id, character_id])
+  @@map("FavoriteCharacters")
 }
 
 model ReadingList {
@@ -228,6 +252,8 @@ model ReadingList {
   is_public  Boolean  @default(false)
   created_at DateTime @default(now())
 
-  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  book Books @relation(fields: [book_id], references: [id], onDelete: Cascade)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
+
+  @@map("ReadingLists")
 }
