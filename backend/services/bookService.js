@@ -46,7 +46,7 @@ export const getAllBooks = async ({ page = 1, limit = 10, search = '' }) => {
             where: whereCondition,
             skip,
             take: limit,
-            orderBy: { createdAt: 'desc' }
+            orderBy: { created_at: 'desc' }
         }),
         prisma.book.count({where: whereCondition})
     ]);
