@@ -4,9 +4,11 @@ import {
     updateChapter as updateChapterService,
     deleteChapter as deleteChapterService,
     createMultipleChapters as createMultipleChaptersService,
+    markChapterAsRead
 } from "../services/chapterService.js";
 
-import { validateChapterData, validateMultipleChapters } from '../validators/validateChapter.js';
+import { validateChapterData, validateMultipleChapters, validateReadedChapterData } from '../validators/validateChapter.js';
+import JWT from "jsonwebtoken";
 
 export const createChapter = async (req, res) => {
     try {
@@ -44,6 +46,19 @@ export const getChaptersByBookId = async (req, res) => {
     try {
         const {bookId} = req.params;
 
+        let userId = null;
+        const authHeader = req.headers['authorization'];
+
+        if(authHeader && authHeader.startsWith('Bearer ')) {
+            const token = authHeader.split(" ")[1];
+            try {
+                const decoded = JWT.verify(token, process.env.JWT_SECRET);
+                userId = decoded.userId;
+            } catch (err) {
+                userId = null;
+            }
+        }
+
         if (!bookId || isNaN(parseInt(bookId))) {
             return res.status(400).json({
                 success: false,
@@ -51,7 +66,7 @@ export const getChaptersByBookId = async (req, res) => {
             });
         }
 
-        const result = await getChaptersByBookIdService(bookId);
+        const result = await getChaptersByBookIdService(bookId, userId);
         return res.status(200).json({
             success: true,
             message: 'Chapter gets successfully.',
@@ -178,6 +193,42 @@ export const createMultipleChapters = async (req, res) => {
             success: false,
             message: error.message
         })
+    }
+};
+
+export const toggleChapterRead =  async (req, res) => {
+    try {
+        const { bookId, number } = req.params;
+        const { read, language } = req.body;
+        const userId = req.user.id;
+
+        const validation = validateReadedChapterData({ book_id: bookId, number });
+        if (!validation.isValid) {
+            return res.status(400).json({
+                success: false,
+                message: validation.message
+            });
+        }
+
+        const result = await markChapterAsRead(
+            userId,
+            parseInt(bookId),
+            parseFloat(number),
+            read,
+            language || "default"
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: result.message,
+            data: result.chapter
+        });
+
+    } catch (error) {
+       return res.status(500).json({
+           success: false,
+           message: error.message
+       });
     }
 };
 

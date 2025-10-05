@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
             getChapters: "GET /api/chapters/book/:bookId",
             createChapter: "POST /api/chapters",
             createMultipleChapters: "POST /api/chapters/bulk",
+            toggleChapterRead: "POST /api/chapters/:bookId/:number/read",
             updateChapter: "PUT /api/chapters/:id",
             deleteChapter: "DELETE /api/chapters/:id"
         }

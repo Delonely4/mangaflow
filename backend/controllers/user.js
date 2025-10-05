@@ -1,4 +1,4 @@
-import { registerUser, loginUser } from '../services/userServices.js';
+import { registerUser, loginUser } from '../services/userService.js';
 
 import { validateRegistrationData, validateLoginData } from '../validators/validateUser.js';
 

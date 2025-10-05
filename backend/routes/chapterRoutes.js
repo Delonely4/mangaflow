@@ -4,7 +4,8 @@ import {
     getChaptersByBookId,
     updateChapter,
     deleteChapter,
-    createMultipleChapters
+    createMultipleChapters,
+    toggleChapterRead
 } from "../controllers/chapter.js";
 import { authenticateToken } from "../middlewares/middleware.js";
 
@@ -14,7 +15,8 @@ router.get('/book/:bookId', getChaptersByBookId);
 
 router.post('/', authenticateToken, createChapter);
 router.post('/bulk', authenticateToken, createMultipleChapters);
-router.put('/:bookId', authenticateToken, updateChapter);
-router.delete('/:bookId', authenticateToken, deleteChapter);
+router.post('/:bookId/:number/read', authenticateToken, toggleChapterRead);
+router.put('/:id', authenticateToken, updateChapter);
+router.delete('/:id', authenticateToken, deleteChapter);
 
 export default router;

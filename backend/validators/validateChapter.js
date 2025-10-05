@@ -53,3 +53,15 @@ export const validateMultipleChapters = (chapters) => {
 
     return { isValid: true };
 };
+
+export const validateReadedChapterData =  ({ book_id, number }) => {
+    if(!book_id || isNaN(parseInt(book_id)) || parseInt(book_id) <= 0) {
+        return { isValid: false, message: 'Valid book ID is required' };
+    }
+
+    if(!number || isNaN(parseFloat(number)) || parseFloat(number) <= 0) {
+        return { isValid: false, message: 'Valid chapter number is required' };
+    }
+
+    return { isValid: true };
+};
