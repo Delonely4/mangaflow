@@ -2,7 +2,7 @@ import prisma from '../models/prisma.js';
 
 export const createChapter = async ({
     book_id,
-    number,
+    chapter_number,
     title,
     release_date,
 }) => {
@@ -17,7 +17,7 @@ export const createChapter = async ({
     const existingChapter = await prisma.chapter.findFirst({
         where: {
             book_id,
-            number
+            chapter_number
         }
     });
 
@@ -28,8 +28,8 @@ export const createChapter = async ({
     const newChapter = await prisma.chapter.create({
         data: {
             book_id,
-            number,
-            title: title || `Chapter ${number}`,
+            chapter_number,
+            title: title || `Chapter ${chapter_number}`,
             release_date: release_date ? new Date(release_date) : new Date()
         },
         include: {
@@ -57,7 +57,7 @@ export const getChaptersByBookId = async (bookId, userId = null) => {
 
     const chapters = await prisma.chapter.findMany({
         where: { book_id: parseInt(bookId) },
-        orderBy: { number: 'asc' },
+        orderBy: { chapter_number: 'asc' },
         include: {
             book: {
                 select: { id: true, name: true }
@@ -71,14 +71,14 @@ export const getChaptersByBookId = async (bookId, userId = null) => {
 
     const read = await prisma.readedChapter.findMany({
         where: { book_id: parseInt(bookId), user_id: userId },
-        select: { number: true, created_at: true, language: true }
+        select: { chapter_number: true, created_at: true, language: true }
         });
 
     const readMap = new Map(read.map(
-        r => [String(r.number), r]));
+        r => [String(r.chapter_number), r]));
 
     const chaptersWithRead = chapters.map (ch => {
-        const readRecord = readMap.get(String(ch.number));
+        const readRecord = readMap.get(String(ch.chapter_number));
         return {
             ...ch,
             read: Boolean(readRecord),
@@ -97,58 +97,58 @@ export const getChaptersByBookId = async (bookId, userId = null) => {
     };
 };
 
-export const markChapterAsRead = async (userId, bookId, number, isRead = true, language = 'default') => {
-    const existing = await prisma.readedChapter.findUnique({
-        where: {
-            book_id_user_id_number: {
-                book_id: parseInt(bookId),
-                user_id: userId,
-                number: parseFloat(number),
-            }
-        }
-    });
+export const markChapterAsRead = async (userId, bookId, chapter_number, language = 'default') => {
+    try {
+        const uniqueKey = {
+            book_id: parseInt(bookId),
+            user_id: userId,
+            chapter_number: parseFloat(chapter_number),
+        };
 
-    if (isRead) {
-        if(existing) {
+        const existing = await prisma.readedChapter.findUnique({
+            where: {
+                book_id_user_id_chapter_number: uniqueKey
+            }
+        });
+
+        if (existing) {
+            await prisma.readedChapter.delete({
+                where: {
+                    book_id_user_id_chapter_number: uniqueKey
+                }
+            });
+
             return {
-                message: 'Chapter already marked as read',
-                chapter: existing
+                message: 'Chapter marked as unread',
+                chapter: null,
+                isRead: false
             };
         }
-        const created = prisma.readedChapter.create({
+
+        const created = await prisma.readedChapter.create({
             data: {
-                user_id: userId,
-                book_id: parseInt(bookId),
-                number: parseFloat(number),
+                book_id_user_id_chapter_number: uniqueKey,
                 language
             }
         });
+
         return {
-            message: 'Chapter marked as read',
-            chapter: created
+            message: 'Chapter was marked as read',
+            chapter: created,
+            isRead: true
         };
-    } else {
-        if(existing) {
-            await prisma.readedChapter.delete({
-                where: {
-                    book_id_user_id_number: {
-                        book_id: parseInt(bookId),
-                        user_id: userId,
-                        number: parseFloat(number),
-                    }
-                }
-            });
-            return {
-                message: 'Chapter marked as read',
-                chapter: null
-            };
-        }
-        return {
-            message: 'Chapter was not marked as read',
-            chapter: null
-        };
+    } catch (error) {
+    console.log('Error marking chapter', error);
+    throw new Error('Failed to update chapter read status');
     }
 };
+
+
+
+
+
+
+
 
 export const updateChapter = async (chapterId, updateData) => {
     const existingChapter = await prisma.chapter.findUnique({
@@ -159,16 +159,16 @@ export const updateChapter = async (chapterId, updateData) => {
         throw new Error('Chapter not found');
     }
 
-    if (updateData.number && updateData.number !== existingChapter.number ) {
+    if (updateData.chapter_number && updateData.chapter_number !== existingChapter.chapter_number ) {
         const duplicateChapter = await prisma.chapter.findFirst({
             where: {
                 book_id: existingChapter.book_id,
-                number: updateData.number
+                chapter_number: updateData.chapter_number
             }
         });
 
         if(duplicateChapter){
-            throw new Error(`Chapter ${updateData.number} already exists for this book`);
+            throw new Error(`Chapter ${updateData.chapter_number} already exists for this book`);
         }
     }
 
@@ -218,13 +218,13 @@ export const createMultipleChapters = async (book_id, chapters) => {
     const uniqueNumbers = [...new Set(chapterNumbers)];
 
     if (chapterNumbers.length !== uniqueNumbers.length) {
-    throw new Error('Chapter numbers must be unique');
+        throw new Error('Chapter numbers must be unique');
     }
 
     const existingChapters = await prisma.chapter.findMany({
         where: {
             book_id,
-            number: { in: chapterNumbers }
+            chapter_number: { in: chapterNumbers }
         }
     });
 
@@ -235,7 +235,7 @@ export const createMultipleChapters = async (book_id, chapters) => {
 
     const chaptersData = chapters.map(chapter => ({
         book_id,
-        number: chapter.number,
+        chapter_number: chapter.number,
         title: chapter.title || `Chapter ${chapter.number}`,
         release_date: chapter.release_date ? new Date(chapter.release_date) : new Date()
     }));
@@ -247,9 +247,9 @@ export const createMultipleChapters = async (book_id, chapters) => {
     const newChapters = await prisma.chapter.findMany({
         where: {
             book_id,
-            number: { in: chapterNumbers }
+            chapter_number: { in: chapterNumbers }
         },
-        orderBy: { number: 'asc' },
+        orderBy: { chapter_number: 'asc' },
         include: {
             book: {
                 select: { id: true, name: true }

@@ -15,7 +15,7 @@ router.get('/book/:bookId', getChaptersByBookId);
 
 router.post('/', authenticateToken, createChapter);
 router.post('/bulk', authenticateToken, createMultipleChapters);
-router.post('/:bookId/:number/read', authenticateToken, toggleChapterRead);
+router.post('/:bookId/chapter-title/:chapter_number/read', authenticateToken, toggleChapterRead);
 router.put('/:id', authenticateToken, updateChapter);
 router.delete('/:id', authenticateToken, deleteChapter);
 
