@@ -3,11 +3,18 @@ import { verifyToken } from '../utils/jwt.js';
 
 export const authenticateToken = async (req, res, next) => {
     try {
-        const authHeader = req.headers['authorization'];
-        const token = authHeader && authHeader.split(' ')[1];
+        let token = req.cookies.token;
 
         if (!token) {
-            return res.status(401).json({ success: false, message: 'Access token required' });
+            const authHeader = req.headers['authorization'];
+            token = authHeader && authHeader.split(' ')[1];
+        }
+
+        if (!token) {
+            res.status(401).json({
+                success: false,
+                message: 'Access token required',
+            })
         }
 
         const decoded = verifyToken(token);
