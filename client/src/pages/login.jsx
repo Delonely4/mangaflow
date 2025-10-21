@@ -1,118 +1,104 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Alert from "../pageComponenst/common/Alert.jsx";
+import AuthFooter from "../pageComponenst/common/AuthFooter.jsx";
+import FormInput from "../pageComponenst/common/FormInput";
 
 function Login() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [success, setSuccess] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        setError('')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-        if (!email.trim()) {
-            setError('Please enter your email')
-            return
-        }
-        if (!password.trim()) {
-            setError('Please enter your password')
-            return
-        }
-
-        try {
-            const response = await fetch('http://localhost:3000/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            })
-
-            const data = await response.json()
-
-            if (response.ok) {
-                if (data.token) {
-                    localStorage.setItem('token', data.token)
-                }
-
-                setSuccess(true)
-
-                setTimeout(() => {
-                    navigate('/')
-                }, 1500)
-            } else {
-                setError(data.message || 'Wrong email or password')
-            }
-        } catch (err) {
-            console.error('Error:', err)
-            setError('Unable to connect to the server')
-        }
+    if (!email.trim()) {
+      setError("Please enter your email");
+      return;
+    }
+    if (!password.trim()) {
+      setError("Please enter your password");
+      return;
     }
 
-    return (
-        <div className="page-container">
-            <div className="form-card">
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-            <h1 style={{ marginTop: 0, marginBottom: '30px', color: '#333' }}>Login</h1>
+      const data = await response.json();
 
-            {success && (
-                <div className="alert alert-success">
-                    Logged in successfully!
-                </div>
-            )}
+      if (response.ok) {
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+        }
 
-            {error && (
-                <div className="alert alert-error">
-                    {error}
-                </div>
-            )}
+        setSuccess(true);
 
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>
-                        Email:
-                    </label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        style={{ width: '100%', padding: '8px', fontSize: '16px' }}
-                    />
-                </div>
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+      } else {
+        setError(data.message || "Wrong email or password");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setError("Unable to connect to the server");
+    }
+  };
 
-                <div className="form-group">
-                    <label>
-                        Password:
-                    </label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        style={{ width: '100%', padding: '8px', fontSize: '16px' }}
-                    />
-                </div>
+  return (
+    <div className="page-container">
+      <div className="form-card">
+        <h1 style={{ marginTop: 0, marginBottom: "30px", color: "#333" }}>
+          Login
+        </h1>
 
-                <button
-                    type="submit"
-                    className="btn btn-primary">
-                    Log in
-                </button>
-            </form>
+        <Alert
+          type="success"
+          message={success ? "Logged in successfully!" : ""}
+        />
+        <Alert type="error" message={error} />
 
-            <p className="form-footer">
-                Have no account? <a href="/register">Register</a>
-            </p>
-            </div>
-        </div>
-    )
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+          />
+
+          <FormInput
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            required
+          />
+
+          <button type="submit" className="btn btn-primary">
+            Log in
+          </button>
+        </form>
+
+        <AuthFooter type="login" />
+      </div>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
