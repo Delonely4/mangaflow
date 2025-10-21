@@ -12,9 +12,9 @@ import JWT from "jsonwebtoken";
 
 export const createChapter = async (req, res) => {
     try {
-        const {book_id, number, title, release_date} = req.body;
+        const {book_id, chapter_number, title, release_date} = req.body;
 
-        const validation = validateChapterData({book_id, number, title, release_date});
+        const validation = validateChapterData({book_id, chapter_number, title, release_date});
 
         if (!validation.isValid) {
             return res.status(400).json({
@@ -25,7 +25,7 @@ export const createChapter = async (req, res) => {
 
         const newChapter = await createChapterService({
             book_id: parseInt(book_id),
-            number: parseFloat(number),
+            chapter_number: parseFloat(chapter_number),
             title: title?.trim(),
             release_date
         });
@@ -93,7 +93,7 @@ export const updateChapter = async (req, res) => {
             });
         }
 
-        const allowedFields = ['number', 'title', 'release_date'];
+        const allowedFields = ['chapter_number', 'title', 'release_date'];
         const filteredData = Object.keys(updateData)
             .filter(key => allowedFields.includes(key))
             .reduce((obj, key) => {
@@ -109,8 +109,8 @@ export const updateChapter = async (req, res) => {
 
         }
 
-        if (filteredData.number) {
-            filteredData.number = parseFloat(filteredData.number);
+        if (filteredData.chapter_number) {
+            filteredData.chapter_number = parseFloat(filteredData.chapter_number);
         }
         if (filteredData.title) {
             filteredData.title = filteredData.title.trim();
@@ -198,11 +198,11 @@ export const createMultipleChapters = async (req, res) => {
 
 export const toggleChapterRead =  async (req, res) => {
     try {
-        const { bookId, number } = req.params;
+        const { bookId, chapter_number } = req.params;
         const { read, language } = req.body;
         const userId = req.user.id;
 
-        const validation = validateReadedChapterData({ book_id: bookId, number });
+        const validation = validateReadedChapterData({ book_id: bookId, chapter_number });
         if (!validation.isValid) {
             return res.status(400).json({
                 success: false,
@@ -213,7 +213,7 @@ export const toggleChapterRead =  async (req, res) => {
         const result = await markChapterAsRead(
             userId,
             parseInt(bookId),
-            parseFloat(number),
+            parseFloat(chapter_number),
             read,
             language || "default"
         );

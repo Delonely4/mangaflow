@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import authRoutes from './routes/routes.js';
 import bookRoutes from './routes/bookRoutes.js';
 import chapterRoutes from './routes/chapterRoutes.js';
@@ -7,7 +8,11 @@ import chapterRoutes from './routes/chapterRoutes.js';
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.json({
