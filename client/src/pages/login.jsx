@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config/api.js";
 import Alert from "../pageComponenst/common/Alert.jsx";
 import AuthFooter from "../pageComponenst/common/AuthFooter.jsx";
 import FormInput from "../pageComponenst/common/FormInput";
-import { API_BASE_URL } from "../config/api";
+import AuthBackground from "../pageComponenst/common/AuthBackground.jsx";
+import AuthLogo from "../pageComponenst/common/AuthLogo.jsx";
+import SocialLoginButtons from "../pageComponenst/common/SocialLoginButtons.jsx";
+import Checkbox from "../pageComponenst/common/Checkbox.jsx";
+import "../styles/Auth.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -60,41 +66,58 @@ function Login() {
   };
 
   return (
-    <div className="page-container">
-      <div className="form-card">
-        <h1 style={{ marginTop: 0, marginBottom: "30px", color: "#333" }}>
-          Login
-        </h1>
+    <div className="auth-page">
+      <AuthBackground />
 
-        <Alert
-          type="success"
-          message={success ? "Logged in successfully!" : ""}
-        />
-        <Alert type="error" message={error} />
+      <div className="auth-container">
+        <AuthLogo subtitle="Your Manga Reading Companion" />
 
-        <form onSubmit={handleSubmit}>
-          <FormInput
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
+        <div className="auth-card">
+          <h2>Login</h2>
+
+          <Alert
+            type="success"
+            message={success ? "Logged in successfully!" : ""}
           />
+          <Alert type="error" message={error} />
 
-          <FormInput
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
+          <form onSubmit={handleSubmit} className="auth-form">
+            <FormInput
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
 
-          <button type="submit" className="btn btn-primary">
-            Log in
-          </button>
-        </form>
+            <FormInput
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+
+            <div className="auth-options">
+              <Checkbox
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.value)}
+                label="Remember me"
+              />
+              <button type="button" className="auth-link">
+                Forgot password?
+              </button>
+            </div>
+
+            <button type="submit" className="auth-submit-btn">
+              Log in
+            </button>
+          </form>
+
+          <SocialLoginButtons />
+        </div>
 
         <AuthFooter type="login" />
       </div>

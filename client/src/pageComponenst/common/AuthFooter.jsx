@@ -1,18 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AuthFooter({ type }) {
+  const navigate = useNavigate();
+
   if (type === "login") {
     return (
-      <p classname="form-footer" style={{ color: "#333" }}>
-        Don't have an account? <Link to="/register">Register here</Link>
-      </p>
+      <div className="auth-footer">
+        Have no account?{" "}
+        <button onClick={() => navigate("/register")}>Sign up</button>
+      </div>
     );
   }
 
   return (
-    <p classname="form-footer" style={{ color: "#333" }}>
-      Already have an account? <Link to="/login">Log in here</Link>
-    </p>
+    <div className="auth-footer">
+      Already have an account?{" "}
+      <button onClick={() => navigate("/login")}>Login</button>
+    </div>
   );
 }
 

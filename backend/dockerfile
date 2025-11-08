@@ -6,5 +6,6 @@ RUN npm install -g prisma
 COPY prisma ./prisma/
 RUN npx prisma generate
 COPY . .
+COPY .env .
 EXPOSE 3000
 CMD ["npm", "start"]

@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config/api";
 import Alert from "../pageComponenst/common/Alert.jsx";
 import AuthFooter from "../pageComponenst/common/AuthFooter.jsx";
 import FormInput from "../pageComponenst/common/FormInput";
-import { API_BASE_URL } from "../config/api";
+import AuthBackground from "../pageComponenst/common/AuthBackground.jsx";
+import AuthLogo from "../pageComponenst/common/AuthLogo.jsx";
+import SocialLoginButtons from "../pageComponenst/common/SocialLoginButtons.jsx";
+import Checkbox from "../pageComponenst/common/Checkbox.jsx";
+import PasswordStrength from "../pageComponenst/common/PasswordStrength.jsx";
+import "../styles/Auth.css";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -19,8 +26,23 @@ function Register() {
     e.preventDefault();
     setError("");
 
+    if (!username.trim()) {
+      setError("Please enter a username");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError("Please enter your email");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      return;
+    }
+
+    if (!agreeToTerms) {
+      setError("You must agree to the terms");
       return;
     }
 
@@ -54,57 +76,78 @@ function Register() {
   };
 
   return (
-    <div className="page-container">
-      <div className="form-card">
-        <h1 style={{ marginTop: 0, marginBottom: "30px", color: "#333" }}>
-          Register
-        </h1>
+    <div className="auth-page">
+      <AuthBackground />
+      <div className="auth-container">
+        <AuthLogo subtitle="Join The MangaFlow" />
 
-        <Alert
-          type="success"
-          message={
-            success ? "Registered successfully! Redirecting to login..." : ""
-          }
-        />
-        <Alert type="error" message={error} />
+        <div className="auth-card">
+          <h2>Create Account</h2>
 
-        <form onSubmit={handleSubmit} noValidate>
-          <FormInput
-            label="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Choose a username"
+          <Alert
+            type="success"
+            message={
+              success ? "Registered successfully! Redirecting to login..." : ""
+            }
           />
+          <Alert type="error" message={error} />
 
-          <FormInput
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-          />
+          <form onSubmit={handleSubmit} className="auth-form">
+            <FormInput
+              label="Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Choose a username"
+              required
+            />
 
-          <FormInput
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Create a password"
-          />
+            <FormInput
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
 
-          <FormInput
-            label="Confirm Password"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Re-enter your password"
-            required
-          />
+            <div className="auth-form-group">
+              <FormInput
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Create a password"
+                required
+              />
+              <PasswordStrength password={password} />
+            </div>
 
-          <button type="submit" className="btn btn-primary">
-            Create Account
-          </button>
-        </form>
+            <FormInput
+              label="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Re-enter your password"
+              required
+            />
+
+            <Checkbox
+              checked={agreeToTerms}
+              onChange={(e) => setAgreeToTerms(e.target.checked)}
+            >
+              I agree to the{" "}
+              <button type="button" className="auth-link">
+                Terms of Service
+              </button>
+            </Checkbox>
+
+            <button type="submit" className="auth-submit-btn">
+              Create Account
+            </button>
+          </form>
+          <SocialLoginButtons />
+        </div>
 
         <AuthFooter type="register" />
       </div>

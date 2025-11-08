@@ -7,15 +7,18 @@ function FormInput({
   required = false,
 }) {
   return (
-    <div className="form-group">
-      <label>{label}:</label>
+    <div className="auth-form-group">
+      <label htmlFor={label.toLowerCase()} className="auth-label">
+        {label}
+      </label>
       <input
         type={type}
+        id={label.toLowerCase()}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        style={{ width: "100%", padding: "8px", fontSize: "16px" }}
+        className="auth-input"
       />
     </div>
   );

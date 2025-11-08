@@ -4,14 +4,15 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/routes.js";
 import bookRoutes from "./routes/bookRoutes.js";
 import chapterRoutes from "./routes/chapterRoutes.js";
+import config from "./config/config.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", process.env.FRONTEND_URL],
-    credentials: true,
+    origin: config.cors.origin,
+    credentials: config.cors.credentials,
   })
 );
 app.use(cookieParser());
