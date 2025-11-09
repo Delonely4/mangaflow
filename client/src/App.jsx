@@ -1,8 +1,9 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
-import "./App.css";
 import CreateManga from "./pages/createManga.jsx";
+import MangaLibrary from "./pages/mangaLibrary.jsx";
+import "./App.css";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/manga/create" element={<CreateManga />} />
+        <Route path="/manga/library" element={<MangaLibrary />} />
         <Route path="/" element={<Login />} />
       </Routes>
     </div>

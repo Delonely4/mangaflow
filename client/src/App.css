@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #f1faee;
 }
 
 .manga-nav {
@@ -141,18 +141,18 @@
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background: #ffffff;
+  background: #f1faee;
 }
 
 .form-card {
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(33, 37, 41, 0.1);
   padding: 40px;
   width: 100%;
   max-width: 420px;
   animation: fadeIn 0.3s ease-in;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(33, 37, 41, 0.1);
 }
 
 .form-group {

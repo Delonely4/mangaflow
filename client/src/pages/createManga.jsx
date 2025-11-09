@@ -215,7 +215,11 @@ function CreateManga() {
 
             <div className="form-row" style={{ display: "flex", gap: "15px" }}>
               <div className="auth-form-group" style={{ flex: 1 }}>
-                <label className="auth-label">Total Chapters</label>
+                <label className="auth-label">
+                  Total
+                  <br />
+                  Chapters
+                </label>
                 <input
                   type="number"
                   name="total_chapters"
