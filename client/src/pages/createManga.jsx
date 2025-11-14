@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../config/api.js";
-import Alert from "../pageComponenst/common/Alert.jsx";
-import AuthBackground from "../pageComponenst/common/AuthBackground.jsx";
-import AuthLogo from "../pageComponenst/common/AuthLogo.jsx";
+import Alert from "../pageComponents/common/Alert.jsx";
+import AuthBackground from "../pageComponents/common/AuthBackground.jsx";
+import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
+import SideImage from "../pageComponents/common/SideImage.jsx";
 import "../styles/Auth.css";
 
 function CreateManga() {
@@ -19,14 +20,20 @@ function CreateManga() {
     genres: [],
     tags: [],
   });
-
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [newAuthor, setNewAuthor] = useState("");
   const [newGenre, setNewGenre] = useState("");
   const [newTag, setNewTag] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/login");
+    return null;
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -99,15 +106,23 @@ function CreateManga() {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
 
     if (!formData.name.trim()) {
       setError("Book name is required");
+      setLoading(false);
       return;
     }
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/api/books`, {
+      if (!token) {
+        setError("You need to be logged in to create manga");
+        setLoading(false);
+        return;
+      }
+
+      const response = await fetch(`${API_BASE_URL}/books`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +149,7 @@ function CreateManga() {
         });
 
         setTimeout(() => {
-          navigate("/manga-library");
+          navigate("/manga/library");
         }, 2000);
       } else {
         setError(data.message || "Failed to create manga");
@@ -142,6 +157,8 @@ function CreateManga() {
     } catch (err) {
       console.error("Error:", err);
       setError("Unable to connect to the server");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -149,233 +166,237 @@ function CreateManga() {
     <div className="auth-page">
       <AuthBackground />
 
-      <div className="auth-container">
-        <AuthLogo subtitle="Add New Manga to Library" />
+      <div className="auth-content-wrapper">
+        <SideImage />
 
-        <div className="auth-card">
-          <h2>Create New Manga</h2>
+        <div className="auth-container">
+          <AuthLogo subtitle="Add New Manga to Your Library" />
 
-          <Alert type="success" message={success} />
-          <Alert type="error" message={error} />
+          <div className="auth-card">
+            <h2>Create New Manga</h2>
 
-          <form onSubmit={handleSubmit} className="auth-form">
-            <div className="auth-form-group">
-              <label className="auth-label">Manga Title *</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Enter manga title"
-                className="auth-input"
-                required
-              />
-            </div>
+            <Alert type="success" message={success} />
+            <Alert type="error" message={error} />
 
-            <div className="auth-form-group">
-              <label className="auth-label">Cover Image URL</label>
-              <input
-                type="url"
-                name="cover_img"
-                value={formData.cover_img}
-                onChange={handleInputChange}
-                placeholder="https://example.com/cover.jpg"
-                className="auth-input"
-              />
-            </div>
-
-            <div className="auth-form-group">
-              <label className="auth-label">Description</label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder="Enter manga description"
-                className="auth-input"
-                rows="3"
-                style={{ resize: "vertical" }}
-              />
-            </div>
-
-            <div className="auth-form-group">
-              <label className="auth-label">Status</label>
-              <select
-                name="status"
-                value={formData.status}
-                onChange={handleInputChange}
-                className="auth-input"
-              >
-                <option value="">Select Status</option>
-                <option value="ongoing">Ongoing</option>
-                <option value="completed">Completed</option>
-                <option value="hiatus">Hiatus</option>
-                <option value="cancelled">Cancelled</option>
-              </select>
-            </div>
-
-            <div className="form-row" style={{ display: "flex", gap: "15px" }}>
-              <div className="auth-form-group" style={{ flex: 1 }}>
-                <label className="auth-label">
-                  Total
-                  <br />
-                  Chapters
-                </label>
-                <input
-                  type="number"
-                  name="total_chapters"
-                  value={formData.total_chapters}
-                  onChange={handleNumberChange}
-                  className="auth-input"
-                  min="0"
-                />
-              </div>
-
-              <div className="auth-form-group" style={{ flex: 1 }}>
-                <label className="auth-label">Russian Chapters</label>
-                <input
-                  type="number"
-                  name="total_chapters_rus"
-                  value={formData.total_chapters_rus}
-                  onChange={handleNumberChange}
-                  className="auth-input"
-                  min="0"
-                />
-              </div>
-
-              <div className="auth-form-group" style={{ flex: 1 }}>
-                <label className="auth-label">English Chapters</label>
-                <input
-                  type="number"
-                  name="total_chapters_eng"
-                  value={formData.total_chapters_eng}
-                  onChange={handleNumberChange}
-                  className="auth-input"
-                  min="0"
-                />
-              </div>
-            </div>
-
-            {/* Authors Section */}
-            <div className="auth-form-group">
-              <label className="auth-label">Authors</label>
-              <div
-                style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-              >
+            <form onSubmit={handleSubmit} className="auth-form">
+              <div className="auth-form-group">
+                <label className="auth-label">Manga Title *</label>
                 <input
                   type="text"
-                  value={newAuthor}
-                  onChange={(e) => setNewAuthor(e.target.value)}
-                  placeholder="Add author"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter manga title"
                   className="auth-input"
-                  style={{ flex: 1 }}
+                  required
                 />
-                <button
-                  type="button"
-                  onClick={addAuthor}
-                  className="auth-submit-btn"
-                  style={{ padding: "10px 15px", width: "auto" }}
-                >
-                  Add
-                </button>
               </div>
-              <div className="tags-container">
-                {formData.authors.map((author, index) => (
-                  <span key={index} className="tag">
-                    {author}
-                    <button
-                      type="button"
-                      onClick={() => removeAuthor(index)}
-                      className="tag-remove"
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
 
-            {/* Genres Section */}
-            <div className="auth-form-group">
-              <label className="auth-label">Genres</label>
-              <div
-                style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-              >
+              <div className="auth-form-group">
+                <label className="auth-label">Cover Image URL</label>
                 <input
-                  type="text"
-                  value={newGenre}
-                  onChange={(e) => setNewGenre(e.target.value)}
-                  placeholder="Add genre"
+                  type="url"
+                  name="cover_img"
+                  value={formData.cover_img}
+                  onChange={handleInputChange}
+                  placeholder="https://example.com/cover.jpg"
                   className="auth-input"
-                  style={{ flex: 1 }}
                 />
-                <button
-                  type="button"
-                  onClick={addGenre}
-                  className="auth-submit-btn"
-                  style={{ padding: "10px 15px", width: "auto" }}
-                >
-                  Add
-                </button>
               </div>
-              <div className="tags-container">
-                {formData.genres.map((genre, index) => (
-                  <span key={index} className="tag">
-                    {genre}
-                    <button
-                      type="button"
-                      onClick={() => removeGenre(index)}
-                      className="tag-remove"
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
 
-            {/* Tags Section */}
-            <div className="auth-form-group">
-              <label className="auth-label">Tags</label>
+              <div className="auth-form-group">
+                <label className="auth-label">Description</label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleInputChange}
+                  placeholder="Enter manga description"
+                  className="auth-input"
+                  rows="3"
+                  style={{ resize: "vertical" }}
+                />
+              </div>
+
+              <div className="auth-form-group">
+                <label className="auth-label">Status</label>
+                <select
+                  name="status"
+                  value={formData.status}
+                  onChange={handleInputChange}
+                  className="auth-input"
+                >
+                  <option value="">Select Status</option>
+                  <option value="ongoing">Ongoing</option>
+                  <option value="completed">Completed</option>
+                  <option value="hiatus">Hiatus</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+
               <div
-                style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
+                className="form-row"
+                style={{ display: "flex", gap: "15px" }}
               >
-                <input
-                  type="text"
-                  value={newTag}
-                  onChange={(e) => setNewTag(e.target.value)}
-                  placeholder="Add tag"
-                  className="auth-input"
-                  style={{ flex: 1 }}
-                />
-                <button
-                  type="button"
-                  onClick={addTag}
-                  className="auth-submit-btn"
-                  style={{ padding: "10px 15px", width: "auto" }}
-                >
-                  Add
-                </button>
-              </div>
-              <div className="tags-container">
-                {formData.tags.map((tag, index) => (
-                  <span key={index} className="tag">
-                    {tag}
-                    <button
-                      type="button"
-                      onClick={() => removeTag(index)}
-                      className="tag-remove"
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
+                <div className="auth-form-group" style={{ flex: 1 }}>
+                  <label className="auth-label">Total Chapters</label>
+                  <input
+                    type="number"
+                    name="total_chapters"
+                    value={formData.total_chapters}
+                    onChange={handleNumberChange}
+                    className="auth-input"
+                    min="0"
+                  />
+                </div>
 
-            <button type="submit" className="auth-submit-btn">
-              Create Manga
-            </button>
-          </form>
+                <div className="auth-form-group" style={{ flex: 1 }}>
+                  <label className="auth-label">Russian Chapters</label>
+                  <input
+                    type="number"
+                    name="total_chapters_rus"
+                    value={formData.total_chapters_rus}
+                    onChange={handleNumberChange}
+                    className="auth-input"
+                    min="0"
+                  />
+                </div>
+
+                <div className="auth-form-group" style={{ flex: 1 }}>
+                  <label className="auth-label">English Chapters</label>
+                  <input
+                    type="number"
+                    name="total_chapters_eng"
+                    value={formData.total_chapters_eng}
+                    onChange={handleNumberChange}
+                    className="auth-input"
+                    min="0"
+                  />
+                </div>
+              </div>
+
+              <div className="auth-form-group">
+                <label className="auth-label">Authors</label>
+                <div
+                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
+                >
+                  <input
+                    type="text"
+                    value={newAuthor}
+                    onChange={(e) => setNewAuthor(e.target.value)}
+                    placeholder="Add author"
+                    className="auth-input"
+                    style={{ flex: 1 }}
+                  />
+                  <button
+                    type="button"
+                    onClick={addAuthor}
+                    className="auth-submit-btn"
+                    style={{ padding: "10px 15px", width: "auto" }}
+                  >
+                    Add
+                  </button>
+                </div>
+                <div className="tags-container">
+                  {formData.authors.map((author, index) => (
+                    <span key={index} className="tag">
+                      {author}
+                      <button
+                        type="button"
+                        onClick={() => removeAuthor(index)}
+                        className="tag-remove"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="auth-form-group">
+                <label className="auth-label">Genres</label>
+                <div
+                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
+                >
+                  <input
+                    type="text"
+                    value={newGenre}
+                    onChange={(e) => setNewGenre(e.target.value)}
+                    placeholder="Add genre"
+                    className="auth-input"
+                    style={{ flex: 1 }}
+                  />
+                  <button
+                    type="button"
+                    onClick={addGenre}
+                    className="auth-submit-btn"
+                    style={{ padding: "10px 15px", width: "auto" }}
+                  >
+                    Add
+                  </button>
+                </div>
+                <div className="tags-container">
+                  {formData.genres.map((genre, index) => (
+                    <span key={index} className="tag">
+                      {genre}
+                      <button
+                        type="button"
+                        onClick={() => removeGenre(index)}
+                        className="tag-remove"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="auth-form-group">
+                <label className="auth-label">Tags</label>
+                <div
+                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
+                >
+                  <input
+                    type="text"
+                    value={newTag}
+                    onChange={(e) => setNewTag(e.target.value)}
+                    placeholder="Add tag"
+                    className="auth-input"
+                    style={{ flex: 1 }}
+                  />
+                  <button
+                    type="button"
+                    onClick={addTag}
+                    className="auth-submit-btn"
+                    style={{ padding: "10px 15px", width: "auto" }}
+                  >
+                    Add
+                  </button>
+                </div>
+                <div className="tags-container">
+                  {formData.tags.map((tag, index) => (
+                    <span key={index} className="tag">
+                      {tag}
+                      <button
+                        type="button"
+                        onClick={() => removeTag(index)}
+                        className="tag-remove"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="auth-submit-btn"
+                disabled={loading}
+              >
+                {loading ? "Creating..." : "Create Manga"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

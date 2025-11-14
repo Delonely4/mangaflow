@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../config/api";
-import Alert from "../pageComponenst/common/Alert.jsx";
-import AuthFooter from "../pageComponenst/common/AuthFooter.jsx";
-import FormInput from "../pageComponenst/common/FormInput";
-import AuthBackground from "../pageComponenst/common/AuthBackground.jsx";
-import AuthLogo from "../pageComponenst/common/AuthLogo.jsx";
-import SocialLoginButtons from "../pageComponenst/common/SocialLoginButtons.jsx";
-import Checkbox from "../pageComponenst/common/Checkbox.jsx";
-import PasswordStrength from "../pageComponenst/common/PasswordStrength.jsx";
+import Alert from "../pageComponents/common/Alert.jsx";
+import AuthFooter from "../pageComponents/common/AuthFooter.jsx";
+import FormInput from "../pageComponents/common/FormInput";
+import AuthBackground from "../pageComponents/common/AuthBackground.jsx";
+import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
+import SocialLoginButtons from "../pageComponents/common/SocialLoginButtons.jsx";
+import Checkbox from "../pageComponents/common/Checkbox.jsx";
+import PasswordStrength from "../pageComponents/common/PasswordStrength.jsx";
+import SideImage from "../pageComponents/common/SideImage.jsx";
 import "../styles/Auth.css";
 
 function Register() {
@@ -47,7 +48,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -78,78 +79,85 @@ function Register() {
   return (
     <div className="auth-page">
       <AuthBackground />
-      <div className="auth-container">
-        <AuthLogo subtitle="Join The MangaFlow" />
 
-        <div className="auth-card">
-          <h2>Create Account</h2>
+      <div className="auth-content-wrapper">
+        <SideImage />
 
-          <Alert
-            type="success"
-            message={
-              success ? "Registered successfully! Redirecting to login..." : ""
-            }
-          />
-          <Alert type="error" message={error} />
+        <div className="auth-container">
+          <AuthLogo subtitle="Join The MangaFlow" />
 
-          <form onSubmit={handleSubmit} className="auth-form">
-            <FormInput
-              label="Username"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Choose a username"
-              required
+          <div className="auth-card">
+            <h2>Create Account</h2>
+
+            <Alert
+              type="success"
+              message={
+                success
+                  ? "Registered successfully! Redirecting to login..."
+                  : ""
+              }
             />
+            <Alert type="error" message={error} />
 
-            <FormInput
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-            />
-
-            <div className="auth-form-group">
+            <form onSubmit={handleSubmit} className="auth-form">
               <FormInput
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Create a password"
+                label="Username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Choose a username"
                 required
               />
-              <PasswordStrength password={password} />
-            </div>
 
-            <FormInput
-              label="Confirm Password"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Re-enter your password"
-              required
-            />
+              <FormInput
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+              />
 
-            <Checkbox
-              checked={agreeToTerms}
-              onChange={(e) => setAgreeToTerms(e.target.checked)}
-            >
-              I agree to the{" "}
-              <button type="button" className="auth-link">
-                Terms of Service
+              <div className="auth-form-group">
+                <FormInput
+                  label="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a password"
+                  required
+                />
+                <PasswordStrength password={password} />
+              </div>
+
+              <FormInput
+                label="Confirm Password"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Re-enter your password"
+                required
+              />
+
+              <Checkbox
+                checked={agreeToTerms}
+                onChange={(e) => setAgreeToTerms(e.target.checked)}
+              >
+                I agree to the{" "}
+                <button type="button" className="auth-link">
+                  Terms of Service
+                </button>
+              </Checkbox>
+
+              <button type="submit" className="auth-submit-btn">
+                Create Account
               </button>
-            </Checkbox>
+            </form>
+            <SocialLoginButtons />
+          </div>
 
-            <button type="submit" className="auth-submit-btn">
-              Create Account
-            </button>
-          </form>
-          <SocialLoginButtons />
+          <AuthFooter type="register" />
         </div>
-
-        <AuthFooter type="register" />
       </div>
     </div>
   );

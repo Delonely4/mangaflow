@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../config/api.js";
-import Alert from "../pageComponenst/common/Alert.jsx";
-import AuthFooter from "../pageComponenst/common/AuthFooter.jsx";
-import FormInput from "../pageComponenst/common/FormInput";
-import AuthBackground from "../pageComponenst/common/AuthBackground.jsx";
-import AuthLogo from "../pageComponenst/common/AuthLogo.jsx";
-import SocialLoginButtons from "../pageComponenst/common/SocialLoginButtons.jsx";
-import Checkbox from "../pageComponenst/common/Checkbox.jsx";
+import { API_BASE_URL } from "../config/api";
+import Alert from "../pageComponents/common/Alert.jsx";
+import AuthFooter from "../pageComponents/common/AuthFooter.jsx";
+import FormInput from "../pageComponents/common/FormInput";
+import AuthBackground from "../pageComponents/common/AuthBackground.jsx";
+import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
+import SocialLoginButtons from "../pageComponents/common/SocialLoginButtons.jsx";
+import Checkbox from "../pageComponents/common/Checkbox.jsx";
+import SideImage from "../pageComponents/common/SideImage.jsx";
 import "../styles/Auth.css";
 
 function Login() {
@@ -33,7 +34,7 @@ function Login() {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +55,7 @@ function Login() {
         setSuccess(true);
 
         setTimeout(() => {
-          navigate("/");
+          navigate("/manga/library");
         }, 1500);
       } else {
         setError(data.message || "Wrong email or password");
@@ -69,57 +70,61 @@ function Login() {
     <div className="auth-page">
       <AuthBackground />
 
-      <div className="auth-container">
-        <AuthLogo subtitle="Your Manga Reading Companion" />
+      <div className="auth-content-wrapper">
+        <SideImage />
 
-        <div className="auth-card">
-          <h2>Login</h2>
+        <div className="auth-container">
+          <AuthLogo subtitle="Your Manga Reading Companion" />
 
-          <Alert
-            type="success"
-            message={success ? "Logged in successfully!" : ""}
-          />
-          <Alert type="error" message={error} />
+          <div className="auth-card">
+            <h2>Login</h2>
 
-          <form onSubmit={handleSubmit} className="auth-form">
-            <FormInput
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
+            <Alert
+              type="success"
+              message={success ? "Logged in successfully!" : ""}
             />
+            <Alert type="error" message={error} />
 
-            <FormInput
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              required
-            />
-
-            <div className="auth-options">
-              <Checkbox
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.value)}
-                label="Remember me"
+            <form onSubmit={handleSubmit} className="auth-form">
+              <FormInput
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
               />
-              <button type="button" className="auth-link">
-                Forgot password?
+
+              <FormInput
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                required
+              />
+
+              <div className="auth-options">
+                <Checkbox
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  label="Remember me"
+                />
+                <button type="button" className="auth-link">
+                  Forgot password?
+                </button>
+              </div>
+
+              <button type="submit" className="auth-submit-btn">
+                Log in
               </button>
-            </div>
+            </form>
 
-            <button type="submit" className="auth-submit-btn">
-              Log in
-            </button>
-          </form>
+            <SocialLoginButtons />
+          </div>
 
-          <SocialLoginButtons />
+          <AuthFooter type="login" />
         </div>
-
-        <AuthFooter type="login" />
       </div>
     </div>
   );

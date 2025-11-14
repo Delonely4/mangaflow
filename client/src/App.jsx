@@ -3,6 +3,7 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import CreateManga from "./pages/createManga.jsx";
 import MangaLibrary from "./pages/mangaLibrary.jsx";
+import ProtectedRoute from "./pageComponents/ProtectedRoute.jsx";
 import "./App.css";
 
 function App() {
@@ -16,7 +17,14 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/manga/create" element={<CreateManga />} />
+        <Route
+          path="/manga/create"
+          element={
+            <ProtectedRoute>
+              <CreateManga />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/manga/library" element={<MangaLibrary />} />
         <Route path="/" element={<Login />} />
       </Routes>
