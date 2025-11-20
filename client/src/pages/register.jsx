@@ -11,6 +11,7 @@ import Checkbox from "../pageComponents/common/Checkbox.jsx";
 import PasswordStrength from "../pageComponents/common/PasswordStrength.jsx";
 import SideImage from "../pageComponents/common/SideImage.jsx";
 import "../styles/Auth.css";
+import axiosInstance from "../config/axios.js";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -20,59 +21,56 @@ function Register() {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     if (!username.trim()) {
       setError("Please enter a username");
+      setLoading(false);
       return;
     }
 
     if (!email.trim()) {
       setError("Please enter your email");
+      setLoading(false);
       return;
     }
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      setLoading(false);
       return;
     }
 
     if (!agreeToTerms) {
       setError("You must agree to the terms");
+      setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
+      const response = await axiosInstance.post("/auth/register", {
+        username,
+        email,
+        password,
       });
 
-      const data = await response.json();
+      setSuccess(true);
 
-      if (response.ok) {
-        setSuccess(true);
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
-      } else {
-        setError(data.message || "Registration error");
-      }
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (err) {
-      console.error("Error:", err);
-      setError("Unable to connect to the server");
+      console.error("Registration error:", err);
+      setError(err.response?.data?.message || "Registration error");
+    } finally {
+      setLoading(false);
     }
   };
 

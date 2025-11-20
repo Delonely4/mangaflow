@@ -9,7 +9,9 @@ import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
 import SocialLoginButtons from "../pageComponents/common/SocialLoginButtons.jsx";
 import Checkbox from "../pageComponents/common/Checkbox.jsx";
 import SideImage from "../pageComponents/common/SideImage.jsx";
+import useAuth from "../hooks/useAuth.js";
 import "../styles/Auth.css";
+import axiosInstance from "../config/axios.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,52 +19,49 @@ function Login() {
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     if (!email.trim()) {
       setError("Please enter your email");
+      setLoading(false);
       return;
     }
     if (!password.trim()) {
       setError("Please enter your password");
+      setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+      const response = await axiosInstance.post("/auth/login", {
+        email,
+        password,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        if (data.token) {
-          localStorage.setItem("token", data.token);
-        }
-
-        setSuccess(true);
-
-        setTimeout(() => {
-          navigate("/manga/library");
-        }, 1500);
-      } else {
-        setError(data.message || "Wrong email or password");
+      if (response.data.token) {
+        login(response.data.token);
       }
+
+      setSuccess(true);
+
+      setTimeout(() => {
+        navigate("/manga/library");
+      }, 1500);
     } catch (err) {
-      console.error("Error:", err);
-      setError("Unable to connect to the server");
+      console.error("Login error:", err);
+      setError(
+        err.response?.data?.message || "Unable to connect to the server"
+      );
+    } finally {
+      setLoading(false);
     }
   };
 

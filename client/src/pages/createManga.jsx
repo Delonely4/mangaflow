@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../config/api.js";
 import Alert from "../pageComponents/common/Alert.jsx";
 import AuthBackground from "../pageComponents/common/AuthBackground.jsx";
 import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
 import SideImage from "../pageComponents/common/SideImage.jsx";
+import useProtectedRoute from "../hooks/useProtectedRoute.js";
 import "../styles/Auth.css";
+import axiosInstance from "../config/axios.js";
 
 function CreateManga() {
+  const { isLoading } = useProtectedRoute();
+
   const [formData, setFormData] = useState({
     name: "",
     cover_img: "",
@@ -29,10 +32,18 @@ function CreateManga() {
 
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
-  if (!token) {
-    navigate("/login");
-    return null;
+  if (isLoading) {
+    return (
+      <div className="auth-page">
+        <div className="auth-content-wrapper">
+          <div className="auth-container">
+            <div className="auth-card">
+              <h2>Loading...</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const handleInputChange = (e) => {
@@ -115,48 +126,28 @@ function CreateManga() {
     }
 
     try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setError("You need to be logged in to create manga");
-        setLoading(false);
-        return;
-      }
+      await axiosInstance.post("/books", formData);
 
-      const response = await fetch(`${API_BASE_URL}/books`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
+      setSuccess("Manga created successfully!");
+      setFormData({
+        name: "",
+        cover_img: "",
+        description: "",
+        status: "",
+        total_chapters: 0,
+        total_chapters_rus: 0,
+        total_chapters_eng: 0,
+        authors: [],
+        genres: [],
+        tags: [],
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccess("Manga created successfully!");
-        setFormData({
-          name: "",
-          cover_img: "",
-          description: "",
-          status: "",
-          total_chapters: 0,
-          total_chapters_rus: 0,
-          total_chapters_eng: 0,
-          authors: [],
-          genres: [],
-          tags: [],
-        });
-
-        setTimeout(() => {
-          navigate("/manga/library");
-        }, 2000);
-      } else {
-        setError(data.message || "Failed to create manga");
-      }
+      setTimeout(() => {
+        navigate("/manga/library");
+      }, 2000);
     } catch (err) {
-      console.error("Error:", err);
-      setError("Unable to connect to the server");
+      console.error("Create manga error:", err);
+      setError(err.response?.data?.message || "Failed to create manga");
     } finally {
       setLoading(false);
     }
@@ -233,11 +224,8 @@ function CreateManga() {
                 </select>
               </div>
 
-              <div
-                className="form-row"
-                style={{ display: "flex", gap: "15px" }}
-              >
-                <div className="auth-form-group" style={{ flex: 1 }}>
+              <div className="form-row">
+                <div className="auth-form-group">
                   <label className="auth-label">Total Chapters</label>
                   <input
                     type="number"
@@ -249,7 +237,7 @@ function CreateManga() {
                   />
                 </div>
 
-                <div className="auth-form-group" style={{ flex: 1 }}>
+                <div className="auth-form-group">
                   <label className="auth-label">Russian Chapters</label>
                   <input
                     type="number"
@@ -261,7 +249,7 @@ function CreateManga() {
                   />
                 </div>
 
-                <div className="auth-form-group" style={{ flex: 1 }}>
+                <div className="auth-form-group">
                   <label className="auth-label">English Chapters</label>
                   <input
                     type="number"
@@ -276,9 +264,7 @@ function CreateManga() {
 
               <div className="auth-form-group">
                 <label className="auth-label">Authors</label>
-                <div
-                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-                >
+                <div>
                   <input
                     type="text"
                     value={newAuthor}
@@ -291,7 +277,6 @@ function CreateManga() {
                     type="button"
                     onClick={addAuthor}
                     className="auth-submit-btn"
-                    style={{ padding: "10px 15px", width: "auto" }}
                   >
                     Add
                   </button>
@@ -314,9 +299,7 @@ function CreateManga() {
 
               <div className="auth-form-group">
                 <label className="auth-label">Genres</label>
-                <div
-                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-                >
+                <div>
                   <input
                     type="text"
                     value={newGenre}
@@ -329,7 +312,6 @@ function CreateManga() {
                     type="button"
                     onClick={addGenre}
                     className="auth-submit-btn"
-                    style={{ padding: "10px 15px", width: "auto" }}
                   >
                     Add
                   </button>
@@ -352,9 +334,7 @@ function CreateManga() {
 
               <div className="auth-form-group">
                 <label className="auth-label">Tags</label>
-                <div
-                  style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-                >
+                <div>
                   <input
                     type="text"
                     value={newTag}
@@ -367,7 +347,6 @@ function CreateManga() {
                     type="button"
                     onClick={addTag}
                     className="auth-submit-btn"
-                    style={{ padding: "10px 15px", width: "auto" }}
                   >
                     Add
                   </button>

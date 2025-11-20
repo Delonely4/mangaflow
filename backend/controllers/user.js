@@ -94,3 +94,28 @@ export const protectedRoute = async (req, res) => {
     },
   });
 };
+
+export const getMe = async (req, res) => {
+  try {
+    const user = req.user;
+
+    res.status(200).json({
+      success: true,
+      data: {
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          avatar: user.avatar,
+          created_at: user.created_at,
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Get me error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching user data",
+    });
+  }
+};

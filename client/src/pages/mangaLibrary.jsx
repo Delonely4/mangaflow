@@ -5,13 +5,16 @@ import Alert from "../pageComponents/common/Alert.jsx";
 import AuthBackground from "../pageComponents/common/AuthBackground.jsx";
 import AuthLogo from "../pageComponents/common/AuthLogo.jsx";
 import SideImage from "../pageComponents/common/SideImage.jsx";
+import useAuth from "../hooks/useAuth.js";
 import "../styles/Auth.css";
+import axiosInstance from "../config/axios.js";
 
 function MangaLibrary() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const token = localStorage.getItem("token");
+
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     fetchBooks();
@@ -19,24 +22,11 @@ function MangaLibrary() {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/books`);
-      console.log("Fetching books from:", `${API_BASE_URL}/books`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log("API Response:", result);
-
-      if (result.success) {
-        setBooks(result.data.books || []);
-      } else {
-        setError(result.message || "Failed to fetch books");
-      }
+      const response = await axiosInstance.get("/books");
+      setBooks(response.data.data.books || []);
     } catch (err) {
       console.error("Error fetching books:", err);
-      setError("Unable to connect to the server: " + err.message);
+      setError(err.response?.data?.message || "Failed to fetch books");
     } finally {
       setLoading(false);
     }
@@ -67,45 +57,28 @@ function MangaLibrary() {
           <AuthLogo subtitle="Manga Library" />
 
           <div className="auth-card">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: "30px",
-              }}
-            >
+            <div>
               <h2>Manga Library</h2>
               <Link
-                to={token ? "/manga/create" : "/login"}
+                to={isAuthenticated ? "/manga/create" : "/login"}
                 className="auth-submit-btn"
-                style={{
-                  padding: "10px 20px",
-                  width: "auto",
-                  textDecoration: "none",
-                }}
               >
-                {token ? "Add New Manga" : "Login to Add Manga"}
+                {isAuthenticated ? "Add New Manga" : "Login to Add Manga"}
               </Link>
             </div>
 
             <Alert type="error" message={error} />
 
             {books.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "40px" }}>
-                <p style={{ color: "#6c757d", marginBottom: "20px" }}>
-                  No manga found in the library.
-                </p>
+              <div>
+                <p>No manga found in the library.</p>
                 <Link
-                  to={token ? "/manga/create" : "/login"}
+                  to={isAuthenticated ? "/manga/create" : "/login"}
                   className="auth-submit-btn"
-                  style={{
-                    padding: "12px 24px",
-                    width: "auto",
-                    textDecoration: "none",
-                  }}
                 >
-                  {token ? "Add Your First Manga" : "Login to Add Manga"}
+                  {isAuthenticated
+                    ? "Add Your First Manga"
+                    : "Login to Add Manga"}
                 </Link>
               </div>
             ) : (
