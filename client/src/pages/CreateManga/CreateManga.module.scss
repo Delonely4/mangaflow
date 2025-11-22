@@ -1,0 +1,41 @@
+.createManga {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.createManga__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.createManga__title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-family: var(--font-family-accent);
+}
+
+.createManga__subtitle {
+  color: var(--color-gray-400);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.createManga__content {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .createManga__title {
+    font-size: 2rem;
+  }
+
+  .createManga__content {
+    padding: var(--spacing-lg);
+  }
+}

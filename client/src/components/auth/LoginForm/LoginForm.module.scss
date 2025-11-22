@@ -1,0 +1,41 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.loginForm__alert {
+  margin-bottom: var(--spacing-md);
+}
+
+.loginForm__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.loginForm__options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--spacing-md) 0;
+}
+
+.loginForm__forgotPassword {
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.loginForm__submit {
+  width: 100%;
+}

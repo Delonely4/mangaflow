@@ -1,73 +1,74 @@
-import { useState, useEffect } from "react";
-import axiosInstance from "../config/axios";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../config/axios";
 
-const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
+function useAuth() {
+  const [state, setState] = useState({
+    isAuthenticated: false,
+    isLoading: true,
+    user: null,
+    token: null,
+  });
 
-  const fetchUserData = async (userToken) => {
+  const navigate = useNavigate();
+
+  const fetchUserData = useCallback(async (token) => {
     try {
       const response = await axiosInstance.get("/auth/me");
-
-      setUser(response.data.data.user);
-      setIsAuthenticated(true);
+      setState((prev) => ({
+        ...prev,
+        isAuthenticated: true,
+        user: response.data.data.user,
+        token,
+      }));
     } catch (error) {
       console.error("Error fetching user data:", error);
       localStorage.removeItem("token");
-      setIsAuthenticated(false);
-      setUser(null);
+      setState((prev) => ({
+        ...prev,
+        isAuthenticated: false,
+        user: null,
+        token: null,
+      }));
     } finally {
-      setIsLoading(false);
+      setState((prev) => ({ ...prev, isLoading: false }));
     }
-  };
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const userToken = localStorage.getItem("token");
-
-      if (userToken) {
-        setToken(userToken);
-        await fetchUserData(userToken);
-      } else {
-        setIsLoading(false);
-        setIsAuthenticated(false);
-      }
-    };
-
-    checkAuth();
   }, []);
 
-  const login = async (newToken) => {
-    localStorage.setItem("token", newToken);
-    setToken(newToken);
-    await fetchUserData(newToken);
-  };
+  const login = useCallback(
+    async (token) => {
+      localStorage.setItem("token", token);
+      await fetchUserData(token);
+    },
+    [fetchUserData]
+  );
 
-  const logout = () => {
+  const logout = useCallback(() => {
     localStorage.removeItem("token");
-    setIsAuthenticated(false);
-    setToken(null);
-    setUser(null);
-  };
+    setState({
+      isAuthenticated: false,
+      isLoading: false,
+      user: null,
+      token: null,
+    });
+    navigate("/login");
+  }, [navigate]);
 
-  const refreshUser = async () => {
-    const userToken = localStorage.getItem("token");
-    if (userToken) {
-      await fetchUserData(userToken);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetchUserData(token);
+    } else {
+      setState((prev) => ({ ...prev, isLoading: false }));
     }
-  };
+  }, [fetchUserData]);
 
   return {
-    isAuthenticated,
-    isLoading,
-    token,
-    user,
+    ...state,
     login,
     logout,
-    refreshUser,
+    refreshUser: () => fetchUserData(state.token),
   };
-};
+}
 
 export default useAuth;

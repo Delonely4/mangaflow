@@ -1,0 +1,51 @@
+.mangaList {
+  padding: 0 var(--spacing-md);
+}
+
+.mangaList__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.mangaList__title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-primary-dark);
+  margin: 0;
+  font-family: var(--font-family-accent);
+}
+
+.mangaList__loading {
+  text-align: center;
+  padding: var(--spacing-xxl);
+  font-size: 1.125rem;
+  color: var(--color-gray-400);
+}
+
+.mangaList__empty {
+  text-align: center;
+  padding: var(--spacing-xxl);
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.mangaList__emptyText {
+  color: var(--color-gray-400);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .mangaList__header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .mangaList__title {
+    font-size: 2rem;
+  }
+}
