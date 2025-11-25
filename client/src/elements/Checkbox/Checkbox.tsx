@@ -1,6 +1,13 @@
 import styles from "./Checkbox.module.scss";
+import { CheckboxProps } from "./Checkbox.props";
 
-function Checkbox({ checked, onChange, label, children, className = "" }) {
+function Checkbox({
+  checked,
+  label,
+  onChange,
+  className = "",
+  children,
+}: CheckboxProps) {
   return (
     <label className={`${styles.checkbox} ${className}`}>
       <input

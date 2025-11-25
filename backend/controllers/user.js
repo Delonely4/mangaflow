@@ -115,7 +115,7 @@ export const getMe = async (req, res) => {
     console.error("Get me error:", error);
     res.status(500).json({
       success: false,
-      message: "Server error while fetching user data",
+      message: "Internal Server Error",
     });
   }
 };
