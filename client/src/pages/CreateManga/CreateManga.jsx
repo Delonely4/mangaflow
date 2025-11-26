@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import MainLayout from "../../../layouts/MainLayout/MainLayout";
-import CreateMangaForm from "../../../components/manga/CreateMangaForm/CreateMangaForm";
+import MainLayout from "@/layouts/MainLayout/MainLayout";
+import CreateMangaForm from "@/components/manga/CreateMangaForm/CreateMangaForm";
 import styles from "./CreateManga.module.scss";
 
 function CreateManga() {

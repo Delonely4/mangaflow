@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../../hooks/useAuth/useAuth";
-import axiosInstance from "../../../../config/axios";
-import Input from "../../../../elements/Input/Input";
-import Button from "../../../../elements/Button/Button";
-import Checkbox from "../../../../elements/Checkbox/Checkbox";
-import Alert from "../../../../elements/Alert/Alert";
+import axiosInstance from "@/config/axios";
+import { useAuth } from "@/hooks";
+import Input from "@/elements/Input/Input";
+import Button from "@/elements/Button/Button";
+import Checkbox from "@/elements/Checkbox/Checkbox";
+import Alert from "@/elements/Alert/Alert";
 import styles from "./LoginForm.module.scss";
 
 function LoginForm() {

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../../../config/axios";
-import Input from "../../../../elements/Input/Input";
-import Button from "../../../../elements/Button/Button";
-import Checkbox from "../../../../elements/Checkbox/Checkbox";
-import Alert from "../../../../elements/Alert/Alert";
-import PasswordStrength from "../../../../elements/PasswordStrength/PasswordStrength";
+import axiosInstance from "@/config/axios";
+import Input from "@/elements/Input/Input";
+import Button from "@/elements/Button/Button";
+import Checkbox from "@/elements/Checkbox/Checkbox";
+import Alert from "@/elements/Alert/Alert";
+import PasswordStrength from "@/elements/PasswordStrength/PasswordStrength";
 import styles from "./RegisterForm.module.scss";
 
 function RegisterForm() {

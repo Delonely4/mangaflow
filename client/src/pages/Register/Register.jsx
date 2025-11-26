@@ -1,9 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import AuthLayout from "../../../layouts/AuthLayout/AuthLayout";
-import RegisterForm from "../../../components/auth/RegisterForm/RegisterForm";
-import SocialLogin from "../../../components/auth/SocialLogin/SocialLogin";
-import AuthLogo from "../../../pageComponents/auth/AuthLogo/AuthLogo";
-import AuthFooter from "../../../pageComponents/auth/AuthFooter/AuthFooter";
+import AuthLayout from "@/layouts/AuthLayout/AuthLayout";
+import RegisterForm from "@/components/auth/RegisterForm/RegisterForm";
+import { SocialLogin, AuthLogo, AuthFooter } from "@/pageComponents";
 import styles from "./Register.module.scss";
 
 function Register() {

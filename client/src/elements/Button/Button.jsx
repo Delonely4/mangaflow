@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from "./Button.module.scss";
 
 function Button({
   children,
@@ -13,10 +13,10 @@ function Button({
 }) {
   const classNames = [
     styles.button,
-    styles["button--${variant}"],
-    styles["button--${size}"],
-    disabled ? styles["button--disabled"] : "",
-    loading ? styles["button--loading"] : "",
+    styles[`button--${variant}`],
+    styles[`button--${size}`],
+    disabled ? styles[`button--disabled`] : "",
+    loading ? styles[`button--loading`] : "",
     className,
   ]
     .filter(Boolean)

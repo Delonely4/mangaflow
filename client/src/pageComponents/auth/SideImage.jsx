@@ -1,5 +1,5 @@
-import vagabondImage from "../../../assets/vagmanga.png";
-import styles from "./SideImage.module.css";
+import vagabondImage from "@/assets/vagmanga.png";
+import styles from "./SideImage.module.scss";
 
 function SideImage() {
   return (

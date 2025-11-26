@@ -1,4 +1,5 @@
 import styles from "./AuthLayout.module.scss";
+import vagabondImage from "@/assets/vagmanga.png";
 
 function AuthLayout({ children }) {
   return (
@@ -30,7 +31,7 @@ function AuthLayout({ children }) {
       <div className={styles.authLayout__content}>
         <div className={styles.authLayout__side}>
           <img
-            src="/assets/vagmanga.png"
+            src={vagabondImage}
             alt="Manga Art"
             className={styles.authLayout__sideImage}
           />

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import MainLayout from "../../../layouts/MainLayout/MainLayout";
-import MangaList from "../../../components/manga/MangaList/MangaList";
+import MainLayout from "@/layouts/MainLayout/MainLayout";
+import MangaList from "@/components/manga/MangaList/MangaList";
 import styles from "./MangaLibrary.module.scss";
 
 function MangaLibrary() {

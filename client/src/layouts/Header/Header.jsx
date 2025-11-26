@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../../hooks/useAuth/useAuth";
-import Button from "../../../elements/Button/Button";
+import { useAuth } from "@/hooks";
+import Button from "@/elements/Button/Button";
 import styles from "./Header.module.scss";
 
 function Header() {

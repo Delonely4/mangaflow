@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../../config/axios";
+import axiosInstance from "@/config/axios";
 
 function useAuth() {
   const [state, setState] = useState({
