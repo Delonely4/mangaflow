@@ -20,15 +20,13 @@ function App() {
 
   return (
     <HelmetProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/manga/library" element={<MangaLibrary />} />
-          <Route path="/manga/create" element={<CreateManga />} />
-          <Route path="/" element={<MangaLibrary />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/manga/library" element={<MangaLibrary />} />
+        <Route path="/manga/create" element={<CreateManga />} />
+        <Route path="/" element={<MangaLibrary />} />
+      </Routes>
     </HelmetProvider>
   );
 }

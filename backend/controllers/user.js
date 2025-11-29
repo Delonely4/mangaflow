@@ -7,6 +7,8 @@ import {
 
 import config from "../config/config.js";
 
+import * as userService from "../services/userService.js";
+
 export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -117,5 +119,33 @@ export const getMe = async (req, res) => {
       success: false,
       message: "Internal Server Error",
     });
+  }
+};
+
+export const uploadAvatar = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "No file uploaded",
+      });
+    }
+
+    const userId = req.user.id;
+    const filename = req.file.filename;
+    const updatedUser = await userService.updateUserAvatar(userId, filename);
+
+    const fullUrl = `${process.env.API_URL}/static/avatars/${updatedUser.avatar}`;
+
+    res.json({
+      message: "Avatar updated successfully",
+      user: {
+        ...updatedUser,
+        avatar: fullUrl,
+      },
+    });
+  } catch (error) {
+    console.error("Upload error:", error);
+    next(error);
   }
 };

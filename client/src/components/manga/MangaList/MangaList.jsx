@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks";
 import axiosInstance from "@/config/axios";
-import BookGrid from "@/pageComponents/manga/BookGrid";
-import BookCard from "@/pageComponents/manga/BookCard";
+import BookGrid from "@/pageComponents/manga/BookGrid/BookGrid";
+import BookCard from "@/pageComponents/manga/BookCard/BookCard";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
-import styles from "./MangaList";
+import styles from "./MangaList.module.scss";
 
 function MangaList() {
   const [books, setBooks] = useState([]);

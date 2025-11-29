@@ -1,13 +1,10 @@
-import styles from "@/pageComponents/auth/SocialLogin.module.scss";
+import styles from "./SocialLogin.module.scss";
 
 function SocialLogin() {
   return (
-    <div className={styles.socialLogin}>
-      <button type="button" className={styles.socialLogin__btn}>
+    <div className={styles.socialDivider}>
+      <button type="button" className={styles.socialButtons__button}>
         Continue with Google
-      </button>
-      <button type="button" className={styles.socialLogin__btn}>
-        Continue with GitHub
       </button>
     </div>
   );

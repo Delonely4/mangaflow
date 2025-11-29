@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/routes.js";
 import bookRoutes from "./routes/bookRoutes.js";
@@ -16,6 +17,11 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+app.use(
+  "/static",
+  express.static(path.join(process.cwd(), "server", "static"))
+);
 
 app.get("/", (req, res) => {
   res.json({

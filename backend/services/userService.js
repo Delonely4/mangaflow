@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import prisma from "../models/prisma.js";
 import { generateToken } from "../utils/jwt.js";
 import config from "../config/config.js";
+import { deleteAvatarFile } from "./avatarService.js";
 
 export const registerUser = async ({ username, email, password }) => {
   const existingUser = await prisma.user.findFirst({
@@ -69,4 +70,34 @@ export const loginUser = async ({ email, password }) => {
       created_at: user.created_at,
     },
   };
+};
+
+export const updateUserAvatar = async (userId, newFilename) => {
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(userId) },
+  });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  if (user.avatar) {
+    await deleteAvatarFile(user.avatar);
+  }
+
+  const updatedUser = await prisma.user.update({
+    where: { id: parseInt(userId) },
+    data: {
+      avatar: newFilename,
+    },
+
+    select: {
+      id: true,
+      username: true,
+      email: true,
+      avatar: true,
+    },
+  });
+
+  return updatedUser;
 };

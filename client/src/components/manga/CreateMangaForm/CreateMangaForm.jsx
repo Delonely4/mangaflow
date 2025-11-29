@@ -4,7 +4,7 @@ import axiosInstance from "@/config/axios";
 import Input from "@/elements/Input/Input";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
-import styles from "./CreateMangaForm";
+import styles from "./CreateMangaForm.module.scss";
 
 function CreateMangaForm() {
   const [formData, setFormData] = useState({

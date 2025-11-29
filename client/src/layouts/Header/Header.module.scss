@@ -37,6 +37,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
+  background: var(--gray-medium);
 }
 
 .header__navLink {
@@ -66,7 +67,6 @@
 }
 
 .header__authSection {
-  display: flex;
   align-items: center;
   gap: var(--spacing-md);
 }
