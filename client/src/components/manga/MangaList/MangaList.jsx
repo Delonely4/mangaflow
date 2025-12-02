@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks";
 import axiosInstance from "@/config/axios";
 import BookGrid from "@/pageComponents/manga/BookGrid/BookGrid";
 import BookCard from "@/pageComponents/manga/BookCard/BookCard";
+import EditMangaModal from "@/pageComponents/manga/EditMangaModal/EditMangaModal";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./MangaList.module.scss";
@@ -12,6 +13,8 @@ function MangaList() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [editManga, setEditManga] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const { isAuthenticated } = useAuth();
 
@@ -31,8 +34,9 @@ function MangaList() {
     }
   };
 
-  const handleEdit = (bookId) => {
-    console.log("Edit book:", bookId);
+  const handleEdit = (book) => {
+    setSelectedBook(book);
+    setEditManga(true);
   };
 
   const handleDelete = async (bookId) => {
@@ -64,9 +68,7 @@ function MangaList() {
           </Link>
         )}
       </div>
-
       <Alert type="error" message={error} />
-
       {books.length === 0 ? (
         <div className={styles.mangaList__empty}>
           <p className={styles.mangaList__emptyText}>
@@ -88,13 +90,18 @@ function MangaList() {
             <BookCard
               key={book.id}
               book={book}
-              onEdit={() => handleEdit(book.id)}
+              onEdit={() => handleEdit(book)}
               onDelete={() => handleDelete(book.id)}
               showActions={isAuthenticated}
             />
           ))}
         </BookGrid>
       )}
+      <EditMangaModal
+        isOpen={editManga}
+        book={selectedBook}
+        onClose={() => setEditManga(false)}
+      />
     </div>
   );
 }

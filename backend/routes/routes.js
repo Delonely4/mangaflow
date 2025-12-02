@@ -12,9 +12,6 @@ import {
   uploadAvatarMiddleware,
 } from "../middlewares/middleware.js";
 
-import { uploadAvatar } from "../middleware/upload.js";
-import { updateProfile } from "../controllers/user.controller.js";
-
 const router = express.Router();
 
 router.post("/register", register);
