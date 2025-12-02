@@ -1,14 +1,10 @@
-import vagabondImage from "@/assets/vagmanga.png";
+import maskImage from "@/assets/mask.jpeg";
 import styles from "./SideImage.module.scss";
 
 function SideImage() {
   return (
     <div className={styles.sideImage}>
-      <img
-        src={vagabondImage}
-        alt="Vagabond"
-        className={styles.sideImage__image}
-      />
+      <img src={maskImage} alt="mask" className={styles.sideImage__image} />
       <div className={styles.sideImage__overlay}></div>
     </div>
   );

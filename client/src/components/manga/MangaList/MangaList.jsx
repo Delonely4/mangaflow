@@ -8,6 +8,7 @@ import EditMangaModal from "@/pageComponents/manga/EditMangaModal/EditMangaModal
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./MangaList.module.scss";
+import { getAllBooks } from "@/api/booksApi";
 
 function MangaList() {
   const [books, setBooks] = useState([]);
@@ -24,8 +25,8 @@ function MangaList() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axiosInstance.get("/books");
-      setBooks(response.data.data.books || []);
+      const response = await getAllBooks();
+      setBooks(response.data.books || []);
     } catch (err) {
       console.error("Error fetching books:", err);
       setError(err.response?.data?.message || "Failed to fetch books");

@@ -7,6 +7,7 @@ import Button from "@/elements/Button/Button";
 import Checkbox from "@/elements/Checkbox/Checkbox";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./LoginForm.module.scss";
+import { loginUser } from "@/api/authApi";
 
 function LoginForm() {
   const [formData, setFormData] = useState({
@@ -38,13 +39,10 @@ function LoginForm() {
     }
 
     try {
-      const response = await axiosInstance.post("/auth/login", {
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await loginUser(formData.email, formData.password);
 
-      if (response.data.token) {
-        login(response.data.token);
+      if (response.token) {
+        login(response.token);
       }
 
       setTimeout(() => {
