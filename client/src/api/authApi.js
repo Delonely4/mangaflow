@@ -1,12 +1,20 @@
 import axiosInstance from "@/config/axios";
 
 export const loginUser = async (email, password) => {
-  const response = await axiosInstance.post("/auth/login", {
-    email,
-    password,
-  });
+  try {
+    const response = await axiosInstance.post("/auth/login", {
+      email,
+      password,
+    });
 
-  return response.data;
+    return response.data;
+  } catch (error) {
+    console.error("Login error:", err);
+
+    return {
+      message: err.response?.data?.message || "Unable to connect to the server",
+    };
+  }
 };
 
 export const registerUser = async (username, email, password) => {

@@ -37,24 +37,39 @@ function LoginForm() {
       return;
     }
 
-    try {
-      const response = await loginUser(formData.email, formData.password);
-
-      if (response.token) {
-        login(response.token);
-      }
-
+    const loginResponse = await loginUser(formData.email, formData.password);
+    if ("message" in loginResponse) {
+      setError(loginResponse.message);
+    } else {
       setTimeout(() => {
         navigate("/manga/library");
       }, 1500);
-    } catch (err) {
-      console.error("Login error:", err);
-      setError(
-        err.response?.data?.message || "Unable to connect to the server"
-      );
-    } finally {
-      setLoading(false);
+
+      if (loginResponse.token) {
+        login(loginResponse.token);
+      }
     }
+
+    setLoading(false);
+
+    // try {
+    //   const response = await loginUser(formData.email, formData.password);
+
+    //   if (response.token) {
+    //     login(response.token);
+    //   }
+
+    //   setTimeout(() => {
+    //     navigate("/manga/library");
+    //   }, 1500);
+    // } catch (err) {
+    //   console.error("Login error:", err);
+    //   setError(
+    //     err.response?.data?.message || "Unable to connect to the server"
+    //   );
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const handleInputChange = (field) => (value) => {
