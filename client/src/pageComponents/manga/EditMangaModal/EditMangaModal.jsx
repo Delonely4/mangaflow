@@ -4,6 +4,7 @@ import Input from "@/elements/Input/Input";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./EditMangaModal.module.scss";
+import { updateBook } from "@/api/booksApi";
 
 function EditMangaModal({ isOpen, book, onClose }) {
   const [formData, setFormData] = useState({
@@ -121,7 +122,7 @@ function EditMangaModal({ isOpen, book, onClose }) {
     setLoading(true);
 
     try {
-      await axiosInstance.put(`/books/${book.id}`, formData);
+      await updateBook(book.id, formData);
 
       setSuccess("Manga updated successfully!");
 

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "@/config/axios";
 import Input from "@/elements/Input/Input";
 import Button from "@/elements/Button/Button";
 import Checkbox from "@/elements/Checkbox/Checkbox";
 import Alert from "@/elements/Alert/Alert";
 import PasswordStrength from "@/elements/PasswordStrength/PasswordStrength";
 import styles from "./RegisterForm.module.scss";
+import { registerUser } from "@/api/authApi";
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -52,11 +52,7 @@ function RegisterForm() {
     }
 
     try {
-      await axiosInstance.post("/auth/register", {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-      });
+      await registerUser(formData.username, formData.email, formData.password);
 
       setSuccess(true);
       setTimeout(() => {

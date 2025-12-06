@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "@/config/axios";
+import { getMe, logOut } from "@/api/authApi";
 
 function useAuth() {
   const [state, setState] = useState({
@@ -14,11 +14,11 @@ function useAuth() {
 
   const fetchUserData = useCallback(async (token) => {
     try {
-      const response = await axiosInstance.get("/auth/me");
+      const response = await getMe();
       setState((prev) => ({
         ...prev,
         isAuthenticated: true,
-        user: response.data.data.user,
+        user: response.data.user,
         token,
       }));
     } catch (error) {
@@ -43,15 +43,21 @@ function useAuth() {
     [fetchUserData]
   );
 
-  const logout = useCallback(() => {
-    localStorage.removeItem("token");
-    setState({
-      isAuthenticated: false,
-      isLoading: false,
-      user: null,
-      token: null,
-    });
-    navigate("/login");
+  const logout = useCallback(async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      localStorage.removeItem("token");
+      setState({
+        isAuthenticated: false,
+        isLoading: false,
+        user: null,
+        token: null,
+      });
+      navigate("/login");
+    }
   }, [navigate]);
 
   useEffect(() => {

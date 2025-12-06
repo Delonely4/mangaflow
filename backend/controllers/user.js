@@ -100,6 +100,9 @@ export const protectedRoute = async (req, res) => {
 export const getMe = async (req, res) => {
   try {
     const user = req.user;
+    const avatar = user.avatar
+      ? `${process.env.API_URL}/static/avatars/${user.avatar}`
+      : null;
 
     res.status(200).json({
       success: true,

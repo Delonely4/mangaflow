@@ -1,11 +1,12 @@
 .sideImage {
-  position: relative;
+  position: absolute;
   width: 15%;
   min-width: 200px;
   margin-right: var(--spacing-xxl);
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  object-fit: cover;
 }
 
 .sideImage__image {

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "@/config/axios";
 import Input from "@/elements/Input/Input";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./CreateMangaForm.module.scss";
+import { createBook } from "@/api/booksApi";
 
 function CreateMangaForm() {
   const [formData, setFormData] = useState({
@@ -106,7 +106,7 @@ function CreateMangaForm() {
     }
 
     try {
-      await axiosInstance.post("/books", formData);
+      await createBook(formData);
 
       setSuccess("Manga created successfully!");
       setFormData({

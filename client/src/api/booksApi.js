@@ -11,6 +11,11 @@ export const getBookById = async (id) => {
   return response.data;
 };
 
+export const createBook = async (bookData) => {
+  const response = await axiosInstance.post("/books", bookData);
+  return response.data;
+};
+
 export const updateBook = async (id, bookData) => {
   const response = await axiosInstance.put(`/books/${id}`, bookData);
   return response.data;

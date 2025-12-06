@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks";
-import axiosInstance from "@/config/axios";
 import BookGrid from "@/pageComponents/manga/BookGrid/BookGrid";
 import BookCard from "@/pageComponents/manga/BookCard/BookCard";
 import EditMangaModal from "@/pageComponents/manga/EditMangaModal/EditMangaModal";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./MangaList.module.scss";
-import { getAllBooks } from "@/api/booksApi";
+import { getAllBooks, deleteBook } from "@/api/booksApi";
 
 function MangaList() {
   const [books, setBooks] = useState([]);
@@ -43,7 +42,7 @@ function MangaList() {
   const handleDelete = async (bookId) => {
     if (window.confirm("Are you sure you want to delete this manga?")) {
       try {
-        await axiosInstance.delete(`/books/${bookId}`);
+        await deleteBook(bookId);
         setBooks(books.filter((book) => book.id !== bookId));
       } catch (err) {
         setError("Failed to delete book");

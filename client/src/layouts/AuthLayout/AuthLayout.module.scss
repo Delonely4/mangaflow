@@ -21,7 +21,7 @@
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 10;
+  z-index: 1;
   justify-content: center;
   align-items: center;
 
@@ -31,13 +31,14 @@
 }
 
 .authLayout__side {
-  position: relative;
+  position: absolute;
   width: 25%;
   min-width: 300px;
   margin-right: var(--spacing-xxl);
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  object-fit: cover;
 
   @media (max-width: 1024px) {
     width: 30%;
@@ -67,6 +68,7 @@
   opacity: 0.9;
   border-radius: var(--border-radius-md);
   transition: all var(--transition-slow);
+  z-index: 1;
 
   @media (max-width: 1024px) {
     height: 70vh;
@@ -109,6 +111,7 @@
   align-items: center;
   max-width: 500px;
   margin: 0 auto;
+  z-index: 15;
 
   @media (max-width: 768px) {
     max-width: 100%;

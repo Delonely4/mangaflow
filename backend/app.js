@@ -2,10 +2,9 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/routes.js";
-import bookRoutes from "./routes/bookRoutes.js";
-import chapterRoutes from "./routes/chapterRoutes.js";
+import router from "./routes/routes.js";
 import config from "./config/config.js";
+import { requestLogger } from "./middlewares/loggerMiddleware.js";
 
 const app = express();
 
@@ -17,6 +16,8 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+app.use(requestLogger);
 
 app.use(
   "/static",
@@ -38,7 +39,7 @@ app.get("/", (req, res) => {
       updateBook: "PUT /api/books/:id",
       deleteBook: "DELETE /api/books/:id",
 
-      getChapters: "GET /api/chapters/book/:bookId",
+      getChaptersByBookId: "GET /api/chapters/book/:bookId",
       createChapter: "POST /api/chapters",
       createMultipleChapters: "POST /api/chapters/bulk",
       toggleChapterRead: "POST /api/chapters/:bookId/:number/read",
@@ -48,8 +49,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/books", bookRoutes);
-app.use("/api/chapters", chapterRoutes);
+app.use("/api", router);
 
 export default app;
