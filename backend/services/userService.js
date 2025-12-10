@@ -3,6 +3,7 @@ import prisma from "../models/prisma.js";
 import { generateToken } from "../utils/jwt.js";
 import config from "../config/config.js";
 import { deleteAvatarFile } from "./avatarService.js";
+import logger from "../utils/logger.js";
 
 export const registerUser = async ({ username, email, password }) => {
   const existingUser = await prisma.user.findFirst({

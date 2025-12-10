@@ -9,7 +9,7 @@ export const requestLogger = (req, res, next) => {
     const message = `${req.method} ${req.originalUrl} ${res.statusCode} - ${duration}ms`;
 
     if (res.statusCode >= 400) {
-      legger.error(message);
+      logger.error(message);
     } else {
       logger.info(message);
     }

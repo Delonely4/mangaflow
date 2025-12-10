@@ -6,6 +6,7 @@ import {
   createMultipleChapters as createMultipleChaptersService,
   toggleChapterRead as toggleChapterReadService,
 } from "../services/chapterService.js";
+import logger from "../utils/logger.js";
 
 import {
   validateChapterData,
@@ -38,12 +39,17 @@ export const createChapter = async (req, res) => {
       title: title?.trim(),
       release_date,
     });
+    logger.info("Chapter created successfully", {
+      book_id,
+      chapterId: newChapter.id,
+    });
     return res.status(201).json({
       success: true,
       message: "Chapter created successfully.",
       data: newChapter,
     });
   } catch (error) {
+    logger.error("Create Chapter Error: ", error);
     return res.status(400).json({
       success: false,
       message: error.message,
@@ -76,12 +82,14 @@ export const getChaptersByBookId = async (req, res) => {
     }
 
     const result = await getChaptersByBookIdService(bookId, userId);
+    logger.info("Chapters retrieved successfully", { bookId, userId });
     return res.status(200).json({
       success: true,
       message: "Chapter gets successfully.",
       data: result,
     });
   } catch (error) {
+    logger.error("Get Chapters By Book ID Error: ", error);
     const statusCode = error.message === "Book not found" ? 404 : 500;
     return res.status(statusCode).json({
       success: false,
@@ -125,12 +133,14 @@ export const updateChapter = async (req, res) => {
     }
 
     const updatedChapter = await updateChapterService(id, filteredData);
+    logger.info("Chapter updated successfully", { chapterId: id });
     return res.status(200).json({
       success: true,
       message: "Chapter updated successfully.",
       data: updatedChapter,
     });
   } catch (error) {
+    logger.error("Update Chapter Error: ", error);
     const statusCode = error.message === "Chapter not found" ? 404 : 500;
     return res.status(statusCode).json({
       success: false,
@@ -151,11 +161,14 @@ export const deleteChapter = async (req, res) => {
 
     const result = await deleteChapterService(id);
 
+    logger.info("Chapter deleted successfully", { chapterId: id });
+
     return res.status(200).json({
       success: true,
       message: "Chapter deleted successfully.",
     });
   } catch (error) {
+    logger.error("Delete Chapter Error: ", error);
     const statusCode = error.message === "Chapter not found" ? 404 : 500;
     return res.status(statusCode).json({
       success: false,
@@ -185,6 +198,10 @@ export const createMultipleChapters = async (req, res) => {
     }
 
     const result = await createMultipleChaptersService(book_id, chapters);
+    logger.info("Multiple chapters created successfully", {
+      bookId: book_id,
+      chapters,
+    });
     return res.status(201).json({
       success: true,
       message: result.message,
@@ -194,6 +211,7 @@ export const createMultipleChapters = async (req, res) => {
       },
     });
   } catch (error) {
+    logger.error("Create Multiple Chapters Error: ", error);
     const statusCode = error.message === "Book not found" ? 404 : 500;
     return res.status(statusCode).json({
       success: false,
@@ -227,12 +245,21 @@ export const toggleChapterRead = async (req, res) => {
       language || "default"
     );
 
+    logger.info("Chapter read status toggled", {
+      userId,
+      bookId,
+      chapter_number,
+      read,
+      language,
+    });
+
     return res.status(200).json({
       success: true,
       message: result.message,
       data: result.chapter,
     });
   } catch (error) {
+    logger.error("Toggle Chapter Read Error: ", error);
     return res.status(500).json({
       success: false,
       message: error.message,

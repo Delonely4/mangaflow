@@ -16,6 +16,7 @@ function LoginForm() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setLoading(true);
 
     if (!formData.email.trim()) {
@@ -37,39 +39,19 @@ function LoginForm() {
       return;
     }
 
-    const loginResponse = await loginUser(formData.email, formData.password);
-    if ("message" in loginResponse) {
-      setError(loginResponse.message);
-    } else {
+    try {
+      const data = await loginUser(formData.email, formData.password);
+      login(data.token);
+      setSuccess("Login successful!");
       setTimeout(() => {
         navigate("/manga/library");
       }, 1500);
-
-      if (loginResponse.token) {
-        login(loginResponse.token);
-      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-
-    // try {
-    //   const response = await loginUser(formData.email, formData.password);
-
-    //   if (response.token) {
-    //     login(response.token);
-    //   }
-
-    //   setTimeout(() => {
-    //     navigate("/manga/library");
-    //   }, 1500);
-    // } catch (err) {
-    //   console.error("Login error:", err);
-    //   setError(
-    //     err.response?.data?.message || "Unable to connect to the server"
-    //   );
-    // } finally {
-    //   setLoading(false);
-    // }
   };
 
   const handleInputChange = (field) => (value) => {
@@ -108,7 +90,7 @@ function LoginForm() {
       <div className={styles.loginForm__options}>
         <Checkbox
           checked={formData.rememberMe}
-          onChange={() => handleInputChange("rememberMe")()}
+          onChange={() => handleInputChange("rememberMe")(!formData.rememberMe)}
           label="Remember me"
         />
 

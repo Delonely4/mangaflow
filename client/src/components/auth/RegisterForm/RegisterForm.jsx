@@ -60,7 +60,7 @@ function RegisterForm() {
       }, 2000);
     } catch (err) {
       console.error("Registration error:", err);
-      setError(err.response?.data?.message || "Registration error");
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -135,7 +135,9 @@ function RegisterForm() {
 
       <Checkbox
         checked={formData.agreeToTerms}
-        onChange={() => handleInputChange("agreeToTerms")()}
+        onChange={() =>
+          handleInputChange("agreeToTerms")(!formData.agreeToTerms)
+        }
         className={styles.registerForm__checkbox}
       >
         I agree to the{" "}

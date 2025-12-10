@@ -8,23 +8,28 @@ export const loginUser = async (email, password) => {
     });
 
     return response.data;
-  } catch (error) {
-    console.error("Login error:", err);
+  } catch (err) {
+    const message =
+      err.response?.data?.message || "Unable to connect to the server";
 
-    return {
-      message: err.response?.data?.message || "Unable to connect to the server",
-    };
+    throw new Error(message);
   }
 };
 
 export const registerUser = async (username, email, password) => {
-  const response = await axiosInstance.post("/auth/register", {
-    username,
-    email,
-    password,
-  });
+  try {
+    const response = await axiosInstance.post("/auth/register", {
+      username,
+      email,
+      password,
+    });
 
-  return response.data;
+    return response.data;
+  } catch (err) {
+    const message = err.response?.data?.message || "Registration failed";
+
+    throw new Error(message);
+  }
 };
 
 export const logOut = async () => {

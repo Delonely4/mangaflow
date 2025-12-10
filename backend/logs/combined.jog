@@ -1,0 +1,123 @@
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T18:42:17.462Z"}
+{"level":"info","message":"GET /api/books 200 - 335ms","timestamp":"2025-12-06T18:44:39.039Z"}
+{"level":"info","message":"GET /api/books 304 - 5ms","timestamp":"2025-12-06T18:44:39.048Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-06T18:44:44.313Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-06T18:44:44.323Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 109ms","timestamp":"2025-12-06T18:45:01.748Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 83ms","timestamp":"2025-12-06T18:45:08.619Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 81ms","timestamp":"2025-12-06T18:45:23.530Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 74ms","timestamp":"2025-12-06T18:46:40.207Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T18:47:39.339Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 163ms","timestamp":"2025-12-06T18:53:45.463Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 80ms","timestamp":"2025-12-06T18:53:46.104Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T18:54:44.045Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 151ms","timestamp":"2025-12-06T18:54:49.765Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 128ms","timestamp":"2025-12-06T19:04:44.940Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 134ms","timestamp":"2025-12-06T19:11:55.612Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 76ms","timestamp":"2025-12-06T19:13:03.487Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:21:01.374Z"}
+{"level":"error","message":"POST /api/auth/login 401 - 143ms","timestamp":"2025-12-06T19:21:08.552Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:21:49.910Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:23:01.254Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:23:47.094Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:23:50.899Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:25:56.477Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 154ms","timestamp":"2025-12-06T19:26:06.358Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-06T19:26:14.326Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 144ms","timestamp":"2025-12-06T19:26:16.676Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 132ms","timestamp":"2025-12-06T19:52:17.618Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 8ms","timestamp":"2025-12-06T19:52:17.636Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 8ms","timestamp":"2025-12-06T19:52:19.170Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 74ms","timestamp":"2025-12-06T19:52:19.247Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 3ms","timestamp":"2025-12-06T19:52:19.252Z"}
+{"level":"info","message":"GET /api/books 304 - 87ms","timestamp":"2025-12-06T19:52:19.254Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 8ms","timestamp":"2025-12-06T19:52:19.264Z"}
+{"level":"info","message":"GET /api/books 304 - 14ms","timestamp":"2025-12-06T19:52:19.273Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-08T18:35:23.547Z"}
+{"level":"info","message":"GET /api/books 304 - 350ms","timestamp":"2025-12-08T18:35:53.748Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-08T18:35:53.762Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-08T20:55:47.951Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-09T20:17:56.435Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 401ms","timestamp":"2025-12-09T20:18:41.857Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 6ms","timestamp":"2025-12-09T20:18:41.873Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 4ms","timestamp":"2025-12-09T20:18:43.452Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 8ms","timestamp":"2025-12-09T20:18:43.463Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 7ms","timestamp":"2025-12-09T20:18:43.479Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 85ms","timestamp":"2025-12-09T20:18:43.569Z"}
+{"level":"info","message":"GET /api/books 200 - 97ms","timestamp":"2025-12-09T20:18:43.572Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-09T20:18:43.584Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-10T20:14:11.814Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-10T20:14:20.262Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:14:40.164Z"}
+{"level":"error","message":"GET /api/books 500 - 2774ms","timestamp":"2025-12-10T20:14:40.169Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:14:42.865Z"}
+{"level":"error","message":"GET /api/books 500 - 2694ms","timestamp":"2025-12-10T20:14:42.867Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:14:59.685Z"}
+{"level":"error","message":"GET /api/books 500 - 2718ms","timestamp":"2025-12-10T20:14:59.686Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:15:02.389Z"}
+{"level":"error","message":"GET /api/books 500 - 2702ms","timestamp":"2025-12-10T20:15:02.390Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-10T20:17:31.291Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:21:45.752Z"}
+{"level":"error","message":"GET /api/books 500 - 2726ms","timestamp":"2025-12-10T20:21:45.758Z"}
+{"clientVersion":"6.17.1","level":"error","message":"Get All Books Error:  \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \nInvalid `prisma.book.findMany()` invocation:\n\n\nCan't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at ei.handleRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:7568)\n    at ei.handleAndLogRequestError (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6593)\n    at ei.request (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:121:6300)\n    at async a (C:\\mangaflow\\backend\\node_modules\\@prisma\\client\\runtime\\library.js:130:9551)\n    at async Promise.all (index 0)\n    at async getAllBooks (file:///C:/mangaflow/backend/services/bookService.js:46:31)\n    at async getAllBooks (file:///C:/mangaflow/backend/controllers/book.js:81:20)","timestamp":"2025-12-10T20:21:48.493Z"}
+{"level":"error","message":"GET /api/books 500 - 2728ms","timestamp":"2025-12-10T20:21:48.495Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-10T20:22:36.250Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:22:43.902Z"}
+{"level":"info","message":"GET /api/books 200 - 153ms","timestamp":"2025-12-10T20:22:43.907Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:22:43.916Z"}
+{"level":"info","message":"GET /api/books 304 - 8ms","timestamp":"2025-12-10T20:22:43.918Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:22:55.339Z"}
+{"level":"info","message":"GET /api/books 304 - 4ms","timestamp":"2025-12-10T20:22:55.340Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:22:55.345Z"}
+{"level":"info","message":"GET /api/books 304 - 5ms","timestamp":"2025-12-10T20:22:55.347Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-10T20:23:37.533Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-10T20:23:37.630Z"}
+{"level":"info","message":"POST /api/auth/login 200 - 99ms","timestamp":"2025-12-10T20:23:37.632Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:23:37.644Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:23:37.645Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:23:39.208Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 7ms","timestamp":"2025-12-10T20:23:39.209Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:23:39.219Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 10ms","timestamp":"2025-12-10T20:23:39.223Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:23:39.224Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-10T20:23:39.226Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:23:39.232Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 6ms","timestamp":"2025-12-10T20:23:39.234Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:23:39.236Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-10T20:23:39.237Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:23:39.243Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 12ms","timestamp":"2025-12-10T20:23:39.253Z"}
+{"bookId":"3","level":"info","message":"Book updated successfully","timestamp":"2025-12-10T20:24:21.949Z"}
+{"level":"info","message":"PUT /api/books/3 200 - 32ms","timestamp":"2025-12-10T20:24:21.950Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.219Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 4ms","timestamp":"2025-12-10T20:24:23.220Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.224Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:24:23.226Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.257Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 6ms","timestamp":"2025-12-10T20:24:23.259Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:24:23.264Z"}
+{"level":"info","message":"GET /api/books 200 - 5ms","timestamp":"2025-12-10T20:24:23.265Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.266Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 6ms","timestamp":"2025-12-10T20:24:23.267Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:24:23.276Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-10T20:24:23.277Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.278Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 6ms","timestamp":"2025-12-10T20:24:23.280Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:23.287Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:24:23.288Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:37.751Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 3ms","timestamp":"2025-12-10T20:24:37.752Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:37.756Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 4ms","timestamp":"2025-12-10T20:24:37.757Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:41.334Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:24:41.336Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:41.344Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 9ms","timestamp":"2025-12-10T20:24:41.348Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:24:41.351Z"}
+{"level":"info","message":"GET /api/books 304 - 10ms","timestamp":"2025-12-10T20:24:41.353Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:41.357Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 8ms","timestamp":"2025-12-10T20:24:41.358Z"}
+{"level":"info","message":"Get me user:","timestamp":"2025-12-10T20:24:41.363Z"}
+{"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:24:41.364Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:24:41.414Z"}
+{"level":"info","message":"GET /api/books 304 - 61ms","timestamp":"2025-12-10T20:24:41.415Z"}

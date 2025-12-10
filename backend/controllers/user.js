@@ -1,4 +1,5 @@
 import { registerUser, loginUser } from "../services/userService.js";
+import logger from "../utils/logger.js";
 
 import {
   validateRegistrationData,
@@ -12,13 +13,18 @@ import * as userService from "../services/userService.js";
 export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
+    logger.info("Start Validate registration data", { username, email });
     const validation = validateRegistrationData({ username, email, password });
     if (!validation.isValid) {
+      logger.warn("Validation registration data failed", {
+        message: validation.message,
+      });
       return res.status(400).json({
         success: false,
         message: validation.message,
       });
     }
+    logger.info("start registration user");
     const { token, user } = await registerUser({ username, email, password });
 
     res.cookie("token", token, {
@@ -28,21 +34,26 @@ export const register = async (req, res) => {
       maxAge: config.jwt.cookieMaxAge,
     });
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: "User registered successfully",
       user,
     });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    logger.error("Registration Error: ", error);
+    return res.status(400).json({ success: false, message: error.message });
   }
 };
 
 export const login = async (req, res) => {
   try {
+    logger.info("Start login user");
     const { email, password } = req.body;
     const validation = validateLoginData({ email, password });
     if (!validation.isValid) {
+      logger.warn("Validation login data failed", {
+        message: validation.message,
+      });
       return res.status(400).json({
         success: false,
         message: validation.message,
@@ -58,35 +69,40 @@ export const login = async (req, res) => {
       maxAge: config.jwt.cookieMaxAge,
     });
 
-    res.status(200).json({
+    logger.info("User:", user.id, "logged in successfully");
+
+    return res.status(200).json({
       success: true,
       message: "Login successful",
       token,
       user,
     });
   } catch (error) {
-    res.status(401).json({ success: false, message: error.message });
+    logger.error("Login Error: ", error);
+    return res.status(401).json({ success: false, message: error.message });
   }
 };
 
 export const logout = async (req, res) => {
   try {
+    logger.info("Logout user:", req.user.id);
     res.clearCookie("token", {
       httpOnly: config.cookie.httpOnly,
       secure: config.cookie.secure,
       sameSite: config.cookie.sameSite,
     });
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Logout successful",
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    logger.error("Logout Error: ", error);
+    return res.status(500).json({ success: false, message: error.message });
   }
 };
 
 export const protectedRoute = async (req, res) => {
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Hello MangaFlow!",
     data: {
@@ -99,12 +115,13 @@ export const protectedRoute = async (req, res) => {
 
 export const getMe = async (req, res) => {
   try {
+    logger.info("Get me user:", req.user.id);
     const user = req.user;
     const avatar = user.avatar
       ? `${process.env.API_URL}/static/avatars/${user.avatar}`
       : null;
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: {
         user: {
@@ -117,8 +134,8 @@ export const getMe = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Get me error:", error);
-    res.status(500).json({
+    logger.error("Get me error:", error);
+    return res.status(500).json({
       success: false,
       message: "Internal Server Error",
     });
@@ -148,7 +165,7 @@ export const uploadAvatar = async (req, res, next) => {
       },
     });
   } catch (error) {
-    console.error("Upload error:", error);
+    logger.error("Upload error:", error);
     next(error);
   }
 };
