@@ -5,7 +5,7 @@ import chapterRoutes from "./chapterRoutes.js";
 
 const router = express.Router();
 
-router.use("/auth", userRoutes);
+router.use("/users", userRoutes);
 router.use("/books", bookRoutes);
 router.use("/chapters", chapterRoutes);
 

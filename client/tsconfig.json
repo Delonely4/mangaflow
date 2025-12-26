@@ -18,9 +18,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "src",
-    "../backend/middlewares/loggerMiddleware.js",
-    "../backend/utils/logger.js"
-  ]
+  "include": ["src"]
 }

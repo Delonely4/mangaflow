@@ -15,6 +15,7 @@ function useAuth() {
   const fetchUserData = useCallback(async (token) => {
     try {
       const response = await getMe();
+      console.log("Server data:", response.data.user);
       setState((prev) => ({
         ...prev,
         isAuthenticated: true,
@@ -60,6 +61,16 @@ function useAuth() {
     }
   }, [navigate]);
 
+  const updateUser = useCallback((updatedUserData) => {
+    setState((prev) => ({
+      ...prev,
+      user: {
+        ...prev.user,
+        ...updatedUserData,
+      },
+    }));
+  });
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -73,6 +84,7 @@ function useAuth() {
     ...state,
     login,
     logout,
+    updateUser,
     refreshUser: () => fetchUserData(state.token),
   };
 }

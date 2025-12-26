@@ -10,6 +10,8 @@ import config from "../config/config.js";
 
 import * as userService from "../services/userService.js";
 
+import prisma from "../models/prisma.js";
+
 export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -85,11 +87,11 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    logger.info("Logout user:", req.user.id);
     res.clearCookie("token", {
       httpOnly: config.cookie.httpOnly,
       secure: config.cookie.secure,
       sameSite: config.cookie.sameSite,
+      path: "/",
     });
     return res.status(200).json({
       success: true,
@@ -115,22 +117,37 @@ export const protectedRoute = async (req, res) => {
 
 export const getMe = async (req, res) => {
   try {
-    logger.info("Get me user:", req.user.id);
-    const user = req.user;
-    const avatar = user.avatar
-      ? `${process.env.API_URL}/static/avatars/${user.avatar}`
-      : null;
+    const userId = req.user.id;
+    logger.info("Get me user ID :", userId);
+
+    const foundUser = await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        avatar: true,
+        created_at: true,
+      },
+    });
+
+    if (!foundUser) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    res.set({
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      Pragma: "no-cache",
+      Expires: "0",
+      "Surrogate-Control": "no-store",
+    });
 
     return res.status(200).json({
       success: true,
       data: {
-        user: {
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          avatar: user.avatar,
-          created_at: user.created_at,
-        },
+        user: foundUser,
       },
     });
   } catch (error) {
@@ -155,14 +172,9 @@ export const uploadAvatar = async (req, res, next) => {
     const filename = req.file.filename;
     const updatedUser = await userService.updateUserAvatar(userId, filename);
 
-    const fullUrl = `${process.env.API_URL}/static/avatars/${updatedUser.avatar}`;
-
     res.json({
       message: "Avatar updated successfully",
-      user: {
-        ...updatedUser,
-        avatar: fullUrl,
-      },
+      user: updatedUser,
     });
   } catch (error) {
     logger.error("Upload error:", error);

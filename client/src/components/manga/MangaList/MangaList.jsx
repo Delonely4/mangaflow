@@ -23,15 +23,16 @@ function MangaList() {
   }, []);
 
   const fetchBooks = async () => {
-    try {
-      const response = await getAllBooks();
-      setBooks(response.data.books || []);
-    } catch (err) {
-      console.error("Error fetching books:", err);
-      setError(err.response?.data?.message || "Failed to fetch books");
-    } finally {
+    const result = await getAllBooks();
+
+    if (!result.success) {
+      setError(result.error);
       setLoading(false);
+      return;
     }
+
+    setBooks(result.data.books || []);
+    setLoading(false);
   };
 
   const handleEdit = (book) => {
@@ -39,15 +40,25 @@ function MangaList() {
     setEditManga(true);
   };
 
+  const handleBookUpdate = (updatedBook) => {
+    setBooks((prevBooks) =>
+      prevBooks.map((book) => (book.id === updatedBook.id ? updatedBook : book))
+    );
+  };
+
   const handleDelete = async (bookId) => {
-    if (window.confirm("Are you sure you want to delete this manga?")) {
-      try {
-        await deleteBook(bookId);
-        setBooks(books.filter((book) => book.id !== bookId));
-      } catch (err) {
-        setError("Failed to delete book");
-      }
+    if (!window.confirm("Are you sure you want to delete this manga?")) {
+      return;
     }
+
+    const result = await deleteBook(bookId);
+
+    if (!result.success) {
+      setError(result.error);
+      return;
+    }
+
+    setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId));
   };
 
   if (loading) {
@@ -101,6 +112,7 @@ function MangaList() {
         isOpen={editManga}
         book={selectedBook}
         onClose={() => setEditManga(false)}
+        onUpdate={handleBookUpdate}
       />
     </div>
   );

@@ -7,8 +7,10 @@ import Alert from "@/elements/Alert/Alert";
 import PasswordStrength from "@/elements/PasswordStrength/PasswordStrength";
 import styles from "./RegisterForm.module.scss";
 import { registerUser } from "@/api/authApi";
+import useAuth from "@/hooks/useAuth";
 
 function RegisterForm() {
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -51,19 +53,25 @@ function RegisterForm() {
       return;
     }
 
-    try {
-      await registerUser(formData.username, formData.email, formData.password);
+    const result = await registerUser(
+      formData.username,
+      formData.email,
+      formData.password
+    );
 
-      setSuccess(true);
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
-    } catch (err) {
-      console.error("Registration error:", err);
-      setError(err.message);
-    } finally {
+    if (!result.success) {
+      setError(result.error);
       setLoading(false);
+      return;
     }
+
+    login(result.data.token);
+    setSuccess("Registered successfully");
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
+
+    setLoading(false);
   };
 
   const handleInputChange = (field) => (value) => {

@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import axiosInstance from "@/config/axios";
 import Input from "@/elements/Input/Input";
 import Button from "@/elements/Button/Button";
 import Alert from "@/elements/Alert/Alert";
 import styles from "./EditMangaModal.module.scss";
 import { updateBook } from "@/api/booksApi";
 
-function EditMangaModal({ isOpen, book, onClose }) {
+function EditMangaModal({ isOpen, book, onClose, onUpdate }) {
   const [formData, setFormData] = useState({
     name: "",
     cover_img: "",
@@ -119,23 +118,28 @@ function EditMangaModal({ isOpen, book, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     setLoading(true);
 
-    try {
-      await updateBook(book.id, formData);
+    const result = await updateBook(book.id, formData);
 
-      setSuccess("Manga updated successfully!");
-
-      setTimeout(() => {
-        onClose();
-        window.location.reload();
-      }, 1000);
-    } catch (err) {
-      console.error("Update manga error:", err);
-      setError(err.response?.data?.message || "Failed to update manga");
-    } finally {
+    if (!result.success) {
+      setError(result.error);
       setLoading(false);
+      return;
     }
+
+    setSuccess("Manga updated successfully!");
+    setLoading(false);
+
+    if (onUpdate) {
+      onUpdate(result.data.book);
+    }
+
+    setTimeout(() => {
+      onClose();
+      window.location.reload();
+    }, 1000);
   };
 
   if (!isOpen) return null;

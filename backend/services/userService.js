@@ -83,13 +83,23 @@ export const updateUserAvatar = async (userId, newFilename) => {
   }
 
   if (user.avatar) {
-    await deleteAvatarFile(user.avatar);
+    try {
+      await deleteAvatarFile(user.avatar);
+      logger.info("Old avatar deleted: ", user.avatar);
+    } catch (err) {
+      logger.warn("Can't delete old file: ", err.message);
+    }
   }
+
+  const baseUrl = process.env.API_URL || "http://localhost:3000";
+  const fullUrl = `${baseUrl}/static/avatars/${newFilename}`;
+
+  logger.info("Save new link in db: ", fullUrl);
 
   const updatedUser = await prisma.user.update({
     where: { id: parseInt(userId) },
     data: {
-      avatar: newFilename,
+      avatar: fullUrl,
     },
 
     select: {

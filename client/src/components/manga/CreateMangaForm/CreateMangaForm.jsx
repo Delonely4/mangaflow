@@ -99,38 +99,19 @@ function CreateMangaForm() {
     setSuccess("");
     setLoading(true);
 
-    if (!formData.name.trim()) {
-      setError("Book name is required");
+    const result = await createBook(formData);
+    if (!result.success) {
+      setError(result.error);
       setLoading(false);
       return;
     }
 
-    try {
-      await createBook(formData);
+    setSuccess("Manga created successfully!");
+    setLoading(false);
 
-      setSuccess("Manga created successfully!");
-      setFormData({
-        name: "",
-        cover_img: "",
-        description: "",
-        status: "",
-        total_chapters: 0,
-        total_chapters_rus: 0,
-        total_chapters_eng: 0,
-        authors: [],
-        genres: [],
-        tags: [],
-      });
-
-      setTimeout(() => {
-        navigate("/manga/library");
-      }, 2000);
-    } catch (err) {
-      console.error("Create manga error:", err);
-      setError(err.response?.data?.message || "Failed to create manga");
-    } finally {
-      setLoading(false);
-    }
+    setTimeout(() => {
+      navigate("/manga/library");
+    }, 2000);
   };
 
   return (

@@ -29,7 +29,12 @@ services:
       - .env
     depends_on:
       - postgres
-    command: sh -c "npx prisma migrate deploy && npm start"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - avatar_data:/app/server/static/avatars
+    command: sh -c "npx prisma migrate deploy && npm run dev"
 
 volumes:
   postgres_data:
+  avatar_data:

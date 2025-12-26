@@ -15,6 +15,7 @@ app.use(
     credentials: config.cors.credentials,
   })
 );
+
 app.use(cookieParser());
 
 app.use(requestLogger);
@@ -29,9 +30,9 @@ app.get("/", (req, res) => {
     message: "MangaFlow!",
     version: "1.0.0",
     endpoints: {
-      register: "POST /api/auth/register",
-      login: "POST /api/auth/login",
-      protected: "GET /api/auth/protected",
+      register: "POST /api/users/register",
+      login: "POST /api/users/login",
+      protected: "GET /api/users/protected",
 
       getAllBooks: "GET /api/books",
       getBook: "GET /api/books/:id",

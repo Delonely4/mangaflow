@@ -10,8 +10,8 @@ import { loginUser } from "@/api/authApi";
 
 function LoginForm() {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "nnn@nnn.ru",
+    password: "000000",
     rememberMe: false,
   });
   const [loading, setLoading] = useState(false);
@@ -39,19 +39,21 @@ function LoginForm() {
       return;
     }
 
-    try {
-      const data = await loginUser(formData.email, formData.password);
-      login(data.token);
-      setSuccess("Login successful!");
-      setTimeout(() => {
-        navigate("/manga/library");
-      }, 1500);
-    } catch (err) {
-      console.error("Login error:", err);
-      setError(err.message);
-    } finally {
+    const result = await loginUser(formData.email, formData.password);
+
+    if (!result.success) {
+      setError(result.error);
       setLoading(false);
+      return;
     }
+
+    login(result.data.token);
+    setSuccess("Login successful!");
+    setTimeout(() => {
+      navigate("/manga/library");
+    }, 2000);
+
+    setLoading(false);
   };
 
   const handleInputChange = (field) => (value) => {

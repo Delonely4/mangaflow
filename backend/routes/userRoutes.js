@@ -19,8 +19,8 @@ router.post("/login", login);
 router.post("/logout", logout);
 router.get("/protected", authenticateToken, protectedRoute);
 router.get("/me", authenticateToken, getMe);
-router.put(
-  "/profile",
+router.post(
+  "/avatar",
   authenticateToken,
   uploadAvatarMiddleware.single("avatar"),
   uploadAvatar

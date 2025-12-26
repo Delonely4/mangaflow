@@ -121,3 +121,965 @@
 {"level":"info","message":"GET /api/auth/me 304 - 5ms","timestamp":"2025-12-10T20:24:41.364Z"}
 {"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-10T20:24:41.414Z"}
 {"level":"info","message":"GET /api/books 304 - 61ms","timestamp":"2025-12-10T20:24:41.415Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T20:01:57.680Z"}
+{"level":"error","message":"GET /api/users/me 403 - 45ms","timestamp":"2025-12-22T20:02:03.510Z"}
+{"level":"error","message":"GET /api/users/me 403 - 5ms","timestamp":"2025-12-22T20:02:03.523Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:02:06.661Z"}
+{"level":"info","message":"GET /api/books 200 - 29ms","timestamp":"2025-12-22T20:02:06.664Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:02:06.672Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-22T20:02:06.674Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:02:09.213Z"}
+{"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-22T20:02:09.222Z"}
+{"level":"error","message":"POST /api/users/login 401 - 12ms","timestamp":"2025-12-22T20:02:09.224Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:02:14.157Z"}
+{"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-22T20:02:14.162Z"}
+{"level":"error","message":"POST /api/users/login 401 - 7ms","timestamp":"2025-12-22T20:02:14.163Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:02:20.430Z"}
+{"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-22T20:02:20.435Z"}
+{"level":"error","message":"POST /api/users/login 401 - 7ms","timestamp":"2025-12-22T20:02:20.437Z"}
+{"email":"nnn@nnn.ru","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:02:56.439Z","username":"Ildar"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:02:56.440Z"}
+{"level":"info","message":"POST /api/users/register 201 - 103ms","timestamp":"2025-12-22T20:02:56.542Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:03:38.035Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T20:03:38.120Z"}
+{"level":"info","message":"POST /api/users/login 200 - 87ms","timestamp":"2025-12-22T20:03:38.122Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:03:38.150Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:03:38.154Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:03:40.249Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-22T20:03:40.255Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:03:40.272Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-22T20:03:40.278Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:03:40.292Z"}
+{"level":"info","message":"GET /api/books 304 - 20ms","timestamp":"2025-12-22T20:03:40.295Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:03:40.296Z"}
+{"level":"info","message":"GET /api/users/me 200 - 20ms","timestamp":"2025-12-22T20:03:40.302Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:03:40.308Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-22T20:03:40.315Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:03:40.322Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:03:40.326Z"}
+{"level":"error","message":"Logout Error:  Cannot read properties of undefined (reading 'id')","stack":"TypeError: Cannot read properties of undefined (reading 'id')\n    at logout (file:///app/controllers/user.js:90:42)\n    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)\n    at next (/app/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/app/node_modules/router/lib/route.js:117:3)\n    at handle (/app/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)\n    at /app/node_modules/router/index.js:295:15\n    at processParams (/app/node_modules/router/index.js:582:12)\n    at next (/app/node_modules/router/index.js:291:5)\n    at Function.handle (/app/node_modules/router/index.js:186:3)","timestamp":"2025-12-22T20:03:42.593Z"}
+{"level":"error","message":"POST /api/users/logout 500 - 3ms","timestamp":"2025-12-22T20:03:42.595Z"}
+{"email":"nnn@nnn.ru","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:04:11.124Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:04:11.125Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-22T20:04:11.138Z"}
+{"level":"error","message":"POST /api/users/register 400 - 16ms","timestamp":"2025-12-22T20:04:11.140Z"}
+{"email":"nnn@nnn.com","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:04:17.452Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:04:17.452Z"}
+{"level":"info","message":"POST /api/users/register 201 - 88ms","timestamp":"2025-12-22T20:04:17.540Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T20:11:01.915Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:14:17.017Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T20:14:17.197Z"}
+{"level":"info","message":"POST /api/users/login 200 - 185ms","timestamp":"2025-12-22T20:14:17.201Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:14:17.226Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T20:14:17.230Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:14:19.327Z"}
+{"level":"info","message":"GET /api/users/me 200 - 63ms","timestamp":"2025-12-22T20:14:19.332Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:14:19.377Z"}
+{"level":"info","message":"GET /api/users/me 200 - 29ms","timestamp":"2025-12-22T20:14:19.381Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:14:19.389Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T20:14:19.393Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:14:19.395Z"}
+{"level":"info","message":"GET /api/books 304 - 51ms","timestamp":"2025-12-22T20:14:19.397Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:14:19.411Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-22T20:14:19.414Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:14:19.415Z"}
+{"level":"info","message":"GET /api/books 304 - 14ms","timestamp":"2025-12-22T20:14:19.417Z"}
+{"level":"error","message":"Logout Error:  Cannot read properties of undefined (reading 'id')","stack":"TypeError: Cannot read properties of undefined (reading 'id')\n    at logout (file:///app/controllers/user.js:90:42)\n    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)\n    at next (/app/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/app/node_modules/router/lib/route.js:117:3)\n    at handle (/app/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)\n    at /app/node_modules/router/index.js:295:15\n    at processParams (/app/node_modules/router/index.js:582:12)\n    at next (/app/node_modules/router/index.js:291:5)\n    at Function.handle (/app/node_modules/router/index.js:186:3)","timestamp":"2025-12-22T20:14:21.527Z"}
+{"level":"error","message":"POST /api/users/logout 500 - 2ms","timestamp":"2025-12-22T20:14:21.528Z"}
+{"email":"nnn@nnn.cm","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:15:14.604Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:15:14.605Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-22T20:15:14.610Z"}
+{"level":"error","message":"POST /api/users/register 400 - 9ms","timestamp":"2025-12-22T20:15:14.612Z"}
+{"email":"nnn@nnn.cmm","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:15:26.313Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:15:26.313Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-22T20:15:26.316Z"}
+{"level":"error","message":"POST /api/users/register 400 - 4ms","timestamp":"2025-12-22T20:15:26.317Z"}
+{"email":"www@nnn.cmm","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:15:31.952Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:15:31.953Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-22T20:15:31.956Z"}
+{"level":"error","message":"POST /api/users/register 400 - 6ms","timestamp":"2025-12-22T20:15:31.958Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T20:17:35.909Z"}
+{"email":"www@nnn.cmm","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:19:59.391Z","username":"Юзер"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:19:59.391Z"}
+{"level":"info","message":"POST /api/users/register 201 - 227ms","timestamp":"2025-12-22T20:19:59.617Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:19:59.642Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-22T20:19:59.646Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:01.744Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T20:20:01.749Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:01.763Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:20:01.767Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:20:08.361Z"}
+{"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-22T20:20:08.366Z"}
+{"level":"error","message":"POST /api/users/login 401 - 7ms","timestamp":"2025-12-22T20:20:08.368Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:20:13.644Z"}
+{"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-22T20:20:13.647Z"}
+{"level":"error","message":"POST /api/users/login 401 - 6ms","timestamp":"2025-12-22T20:20:13.650Z"}
+{"email":"tito@tito.ru","level":"info","message":"Start Validate registration data","timestamp":"2025-12-22T20:20:46.699Z","username":"Tito"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-22T20:20:46.700Z"}
+{"level":"info","message":"POST /api/users/register 201 - 79ms","timestamp":"2025-12-22T20:20:46.778Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:46.800Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:20:46.805Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:48.834Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:20:48.839Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:48.851Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:20:48.855Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T20:20:57.548Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T20:20:57.624Z"}
+{"level":"info","message":"POST /api/users/login 200 - 77ms","timestamp":"2025-12-22T20:20:57.625Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:57.648Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T20:20:57.651Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:59.710Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T20:20:59.715Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:59.729Z"}
+{"level":"info","message":"GET /api/users/me 200 - 25ms","timestamp":"2025-12-22T20:20:59.747Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:20:59.778Z"}
+{"level":"info","message":"GET /api/books 304 - 47ms","timestamp":"2025-12-22T20:20:59.780Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:59.784Z"}
+{"level":"info","message":"GET /api/users/me 200 - 38ms","timestamp":"2025-12-22T20:20:59.793Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T20:20:59.797Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-22T20:20:59.798Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:20:59.799Z"}
+{"level":"info","message":"GET /api/users/me 200 - 18ms","timestamp":"2025-12-22T20:20:59.813Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:08.405Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T20:21:08.408Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:08.419Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:21:08.424Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:08.463Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:21:08.466Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:08.472Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:21:08.476Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 70ms","timestamp":"2025-12-22T20:21:11.178Z"}
+{"level":"info","message":"GET /static/avatars/a55399a5-afcc-4ee5-81e9-3fe28238f9e9.jpeg 200 - 23ms","timestamp":"2025-12-22T20:21:11.210Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:14.211Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:21:14.215Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:14.223Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:21:14.227Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:14.267Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T20:21:14.271Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:14.279Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-22T20:21:14.288Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T20:21:17.400Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 68ms","timestamp":"2025-12-22T20:21:17.449Z"}
+{"level":"info","message":"GET /static/avatars/5cfc323c-79b4-4459-bc7d-d7f0dcf4875e.jpeg 200 - 19ms","timestamp":"2025-12-22T20:21:17.479Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:59.843Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T20:21:59.846Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:59.856Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T20:21:59.859Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:59.894Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-22T20:21:59.897Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:21:59.903Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:21:59.907Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T20:23:54.130Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 45ms","timestamp":"2025-12-22T20:23:54.148Z"}
+{"level":"info","message":"GET /static/avatars/f2861a44-e15a-4ba0-8854-03f93d37c9db.jpeg 200 - 27ms","timestamp":"2025-12-22T20:23:54.222Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T20:37:51.075Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T20:41:10.341Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:41:52.706Z"}
+{"level":"info","message":"GET /api/users/me 200 - 106ms","timestamp":"2025-12-22T20:41:52.715Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:41:52.728Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:41:52.732Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:41:52.748Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:41:52.753Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:41:52.760Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:41:52.764Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T20:41:56.731Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 60ms","timestamp":"2025-12-22T20:41:56.748Z"}
+{"level":"info","message":"GET /static/avatars/e1d184b0-31eb-4714-89e9-9966791adb08.jpeg 200 - 50ms","timestamp":"2025-12-22T20:41:56.831Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:42:02.014Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T20:42:02.019Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:42:02.028Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:42:02.032Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:42:02.077Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-22T20:42:02.079Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T20:42:02.089Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T20:42:02.093Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T21:05:39.868Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T21:06:14.905Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:40.639Z"}
+{"level":"info","message":"GET /api/users/me 200 - 51ms","timestamp":"2025-12-22T21:06:40.645Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:40.655Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:06:40.659Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:40.804Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-22T21:06:40.810Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:40.816Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:06:40.820Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T21:06:43.717Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 72ms","timestamp":"2025-12-22T21:06:43.726Z"}
+{"level":"info","message":"GET /static/avatars/38d09904-5ca8-4153-b312-5b2b8778de8d.jpeg 200 - 22ms","timestamp":"2025-12-22T21:06:43.763Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:46.562Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:06:46.565Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:46.571Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:06:46.575Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:46.592Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:06:46.595Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:06:46.600Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:06:46.603Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T21:22:56.156Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:26.193Z"}
+{"level":"info","message":"GET /api/users/me 200 - 58ms","timestamp":"2025-12-22T21:23:26.201Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:26.212Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:26.217Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:26.511Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:23:26.515Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:26.521Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-22T21:23:26.531Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.510Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:23:27.514Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.521Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:23:27.526Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.606Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:27.611Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.622Z"}
+{"level":"info","message":"GET /api/users/me 200 - 30ms","timestamp":"2025-12-22T21:23:27.644Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:23:27.645Z"}
+{"level":"info","message":"GET /api/books 304 - 29ms","timestamp":"2025-12-22T21:23:27.647Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:23:27.659Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-22T21:23:27.661Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.662Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:27.666Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:27.672Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:27.677Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.227Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-22T21:23:31.233Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.239Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:31.244Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.437Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:23:31.441Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:23:31.442Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-22T21:23:31.443Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.450Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:23:31.452Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-22T21:23:31.454Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-22T21:23:31.458Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.470Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:23:31.474Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:31.482Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:23:31.486Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:42.555Z"}
+{"level":"info","message":"GET /api/users/me 200 - 19ms","timestamp":"2025-12-22T21:23:42.563Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:42.576Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-22T21:23:42.585Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:42.833Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:23:42.837Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:42.847Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:23:42.851Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T21:23:51.177Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 97ms","timestamp":"2025-12-22T21:23:51.200Z"}
+{"level":"info","message":"GET /static/avatars/6fc443e0-b592-4698-aae8-192871161d1c.jpeg 200 - 41ms","timestamp":"2025-12-22T21:23:51.255Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:55.557Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-22T21:23:55.561Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:55.571Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:23:55.575Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:55.792Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:23:55.795Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:23:55.804Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-22T21:23:55.813Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-22T21:25:26.079Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:32.140Z"}
+{"level":"info","message":"GET /api/users/me 200 - 62ms","timestamp":"2025-12-22T21:25:32.148Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:32.162Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:25:32.166Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:32.290Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:25:32.295Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:32.302Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-22T21:25:32.313Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T21:25:35.219Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 59ms","timestamp":"2025-12-22T21:25:35.227Z"}
+{"level":"info","message":"GET /static/avatars/aedce9b1-4add-421d-90d8-ad8b94d5947f.jpeg 200 - 23ms","timestamp":"2025-12-22T21:25:35.259Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:51.628Z"}
+{"level":"info","message":"GET /api/users/me 200 - 18ms","timestamp":"2025-12-22T21:25:51.634Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:51.644Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:25:51.648Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:51.667Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:25:51.670Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:25:51.675Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:25:51.679Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T21:27:30.789Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 27ms","timestamp":"2025-12-22T21:27:30.795Z"}
+{"level":"info","message":"GET /static/avatars/001de871-0e64-496e-b2cf-0c07ed3076e4.jpeg 200 - 15ms","timestamp":"2025-12-22T21:27:30.818Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:34.557Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:27:34.560Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:34.576Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:34.579Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:34.620Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:34.623Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:34.629Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:27:34.633Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.293Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:39.296Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.308Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:39.311Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.367Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:27:39.372Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.385Z"}
+{"level":"info","message":"GET /api/users/me 200 - 17ms","timestamp":"2025-12-22T21:27:39.392Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:39.417Z"}
+{"level":"info","message":"GET /api/books 304 - 31ms","timestamp":"2025-12-22T21:27:39.418Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.419Z"}
+{"level":"info","message":"GET /api/users/me 200 - 25ms","timestamp":"2025-12-22T21:27:39.422Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:39.426Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-22T21:27:39.427Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.428Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-22T21:27:39.431Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.554Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:39.557Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:39.562Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:39.565Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T21:27:41.825Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T21:27:41.912Z"}
+{"level":"info","message":"POST /api/users/login 200 - 89ms","timestamp":"2025-12-22T21:27:41.913Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:41.934Z"}
+{"level":"info","message":"GET /api/users/me 200 - 4ms","timestamp":"2025-12-22T21:27:41.936Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T21:27:43.324Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T21:27:43.402Z"}
+{"level":"info","message":"POST /api/users/login 200 - 79ms","timestamp":"2025-12-22T21:27:43.403Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:43.418Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-22T21:27:43.420Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:44.002Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:27:44.004Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:44.005Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-22T21:27:44.006Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:44.014Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:27:44.018Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:44.019Z"}
+{"level":"info","message":"GET /api/books 304 - 8ms","timestamp":"2025-12-22T21:27:44.020Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:44.024Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:27:44.028Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:44.036Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:27:44.039Z"}
+{"level":"info","message":"POST /api/users/logout 200 - 1ms","timestamp":"2025-12-22T21:27:46.831Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-22T21:27:53.087Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-22T21:27:53.161Z"}
+{"level":"info","message":"POST /api/users/login 200 - 75ms","timestamp":"2025-12-22T21:27:53.162Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:53.191Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:27:53.196Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:55.218Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:27:55.222Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:55.234Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-22T21:27:55.238Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:55.239Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-22T21:27:55.241Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:55.246Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-22T21:27:55.247Z"}
+{"level":"info","message":"GET /api/books 304 - 5ms","timestamp":"2025-12-22T21:27:55.249Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-22T21:27:55.254Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:27:55.260Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:27:55.264Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:03.782Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:28:03.785Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:03.793Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:28:03.796Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:03.820Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:28:03.823Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:03.829Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:28:03.833Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-22T21:28:05.810Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 21ms","timestamp":"2025-12-22T21:28:05.814Z"}
+{"level":"info","message":"GET /static/avatars/239f6ee4-2c5b-409f-9b24-9e9074bcf3fe.jpeg 200 - 17ms","timestamp":"2025-12-22T21:28:05.842Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:07.416Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:28:07.421Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:07.430Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-22T21:28:07.436Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:07.457Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-22T21:28:07.460Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-22T21:28:07.468Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-22T21:28:07.472Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-23T18:42:31.064Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-23T18:43:48.576Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:25.359Z"}
+{"level":"info","message":"GET /api/users/me 200 - 42ms","timestamp":"2025-12-23T18:44:25.365Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:25.374Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T18:44:25.378Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:25.395Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T18:44:25.398Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:25.403Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T18:44:25.407Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T18:44:37.512Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 38ms","timestamp":"2025-12-23T18:44:37.527Z"}
+{"level":"info","message":"GET /static/avatars/4f8a984d-60b8-42b7-b314-5f73950256c8.jpeg 200 - 10ms","timestamp":"2025-12-23T18:44:37.545Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:56.109Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T18:44:56.112Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:56.120Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-23T18:44:56.122Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:56.291Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-23T18:44:56.293Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T18:44:56.299Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T18:44:56.303Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T18:45:03.280Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 14ms","timestamp":"2025-12-23T18:45:03.285Z"}
+{"level":"info","message":"GET /static/avatars/6e43229b-b83c-480c-b783-198cf0b98c22.jpeg 200 - 4ms","timestamp":"2025-12-23T18:45:03.297Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-23T19:14:47.968Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:14:49.147Z"}
+{"level":"info","message":"GET /api/users/me 200 - 52ms","timestamp":"2025-12-23T19:14:49.153Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:14:49.165Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T19:14:49.168Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:14:49.184Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T19:14:49.187Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:14:49.192Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T19:14:49.195Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T19:14:52.541Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 61ms","timestamp":"2025-12-23T19:14:52.555Z"}
+{"level":"info","message":"GET /static/avatars/14dbaccd-b44d-43c9-ad58-9d03d4c459d8.jfif 200 - 5ms","timestamp":"2025-12-23T19:14:52.569Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:15:02.203Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T19:15:02.206Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:15:02.216Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T19:15:02.220Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:15:02.245Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T19:15:02.248Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:15:02.253Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T19:15:02.257Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T19:23:48.062Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 49ms","timestamp":"2025-12-23T19:23:48.068Z"}
+{"level":"info","message":"GET /static/avatars/b8cb77bb-3dd1-4140-b929-3ef764d22f77.jpg 200 - 11ms","timestamp":"2025-12-23T19:23:48.089Z"}
+{"level":"info","message":"GET /static/avatars/b8cb77bb-3dd1-4140-b929-3ef764d22f77.jpg 304 - 6ms","timestamp":"2025-12-23T19:31:29.945Z"}
+{"level":"error","message":"GET /favicon.ico 404 - 3ms","timestamp":"2025-12-23T19:31:30.321Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-23T19:38:49.210Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:39:43.917Z"}
+{"level":"info","message":"GET /api/users/me 200 - 50ms","timestamp":"2025-12-23T19:39:43.926Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:39:43.937Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T19:39:43.942Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:39:43.958Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T19:39:43.962Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:39:43.968Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T19:39:43.973Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T19:39:48.639Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 37ms","timestamp":"2025-12-23T19:39:48.651Z"}
+{"level":"info","message":"GET /static/avatars/6bc91ec2-fd31-4c8b-92e9-2c4ad507c142.jpeg 200 - 18ms","timestamp":"2025-12-23T19:39:48.680Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:40:49.323Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-23T19:40:49.329Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:40:49.339Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T19:40:49.343Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:40:49.366Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T19:40:49.370Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T19:40:49.377Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T19:40:49.382Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:24:42.615Z"}
+{"level":"info","message":"GET /api/users/me 200 - 54ms","timestamp":"2025-12-23T20:24:42.627Z"}
+{"level":"info","message":"GET /static/avatars/6bc91ec2-fd31-4c8b-92e9-2c4ad507c142.jpeg 304 - 4ms","timestamp":"2025-12-23T20:24:42.679Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:25:23.566Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:25:23.572Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:25:55.563Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:25:55.569Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:26:32.565Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:26:32.569Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:18.620Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:27:18.625Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:18.636Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:27:18.642Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:18.665Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:27:18.670Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:18.680Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-23T20:27:18.687Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:23.827Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:27:23.830Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:23.839Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:27:23.843Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:24.018Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:27:24.023Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:24.032Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-23T20:27:24.036Z"}
+{"level":"info","message":"GET /static/avatars/6bc91ec2-fd31-4c8b-92e9-2c4ad507c142.jpeg 304 - 2ms","timestamp":"2025-12-23T20:27:24.045Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:37.612Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:27:37.616Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:37.630Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:27:37.635Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:37.656Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T20:27:37.660Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:27:37.667Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:27:37.672Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:28:38.624Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:28:38.628Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:28:38.643Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:28:38.649Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:28:38.697Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:28:38.703Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:28:38.718Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:28:38.723Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:28:39.546Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:28:39.551Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:19.613Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:29:19.617Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:26.425Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:29:26.430Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:26.490Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T20:29:26.494Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:26.502Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-23T20:29:26.508Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:26.514Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:29:26.519Z"}
+{"level":"info","message":"GET /static/avatars/6bc91ec2-fd31-4c8b-92e9-2c4ad507c142.jpeg 304 - 2ms","timestamp":"2025-12-23T20:29:26.526Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T20:29:31.797Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 184ms","timestamp":"2025-12-23T20:29:31.810Z"}
+{"level":"info","message":"GET /static/avatars/c92960c4-8f85-4f71-b2b7-1a9fb3ad3684.png 200 - 76ms","timestamp":"2025-12-23T20:29:31.899Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:33.805Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:29:33.809Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:33.818Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T20:29:33.822Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:34.016Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T20:29:34.020Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:29:34.027Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-23T20:29:34.033Z"}
+{"level":"info","message":"GET /static/avatars/c92960c4-8f85-4f71-b2b7-1a9fb3ad3684.png 304 - 4ms","timestamp":"2025-12-23T20:29:34.043Z"}
+{"level":"info","message":"Old avatar deleted: ","timestamp":"2025-12-23T20:29:36.957Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 25ms","timestamp":"2025-12-23T20:29:36.964Z"}
+{"level":"info","message":"GET /static/avatars/a262ff2d-5b21-4161-984f-2c1cd5ed94a9.jpeg 200 - 5ms","timestamp":"2025-12-23T20:29:36.980Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:31:37.998Z"}
+{"level":"info","message":"GET /api/users/me 200 - 34ms","timestamp":"2025-12-23T20:31:38.003Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:31:38.016Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:31:38.021Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:31:38.043Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T20:31:38.046Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:31:38.053Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:31:38.059Z"}
+{"level":"info","message":"GET /static/avatars/a262ff2d-5b21-4161-984f-2c1cd5ed94a9.jpeg 304 - 2ms","timestamp":"2025-12-23T20:31:38.064Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.688Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:36:37.693Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.703Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:36:37.708Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.780Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:36:37.787Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.816Z"}
+{"level":"info","message":"GET /api/users/me 200 - 31ms","timestamp":"2025-12-23T20:36:37.823Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.837Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:36:37.842Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:37.850Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:36:37.856Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:36:37.867Z"}
+{"level":"info","message":"GET /api/books 304 - 72ms","timestamp":"2025-12-23T20:36:37.868Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:36:37.874Z"}
+{"level":"info","message":"GET /api/books 304 - 4ms","timestamp":"2025-12-23T20:36:37.875Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:42.142Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-23T20:36:42.146Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:42.153Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:36:42.158Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:44.002Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:36:44.009Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:36:44.013Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-23T20:36:44.015Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:36:44.041Z"}
+{"level":"info","message":"GET /api/books 304 - 13ms","timestamp":"2025-12-23T20:36:44.042Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:44.061Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-23T20:36:44.066Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:44.073Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:36:44.077Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:44.084Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:36:44.089Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:45.105Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:36:45.109Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:36:45.116Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:36:45.121Z"}
+{"level":"error","message":"POST /api/books 400 - 4ms","timestamp":"2025-12-23T20:36:58.280Z"}
+{"level":"error","message":"POST /api/books 400 - 3ms","timestamp":"2025-12-23T20:37:09.443Z"}
+{"bookId":1,"level":"info","message":"Book created successfully","timestamp":"2025-12-23T20:37:22.830Z"}
+{"level":"info","message":"POST /api/books 201 - 25ms","timestamp":"2025-12-23T20:37:22.831Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:37:24.956Z"}
+{"level":"info","message":"GET /api/books 200 - 16ms","timestamp":"2025-12-23T20:37:24.957Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:37:24.958Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:37:24.961Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:37:24.968Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-23T20:37:24.978Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:37:24.979Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-23T20:37:24.980Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:37:24.985Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:37:24.990Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:37:25.003Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-23T20:37:25.007Z"}
+{"level":"info","message":"POST /api/users/logout 200 - 47ms","timestamp":"2025-12-23T20:37:31.148Z"}
+{"email":"nnn@nnn.com","level":"info","message":"Start Validate registration data","timestamp":"2025-12-23T20:38:02.564Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-23T20:38:02.565Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-23T20:38:02.573Z"}
+{"level":"error","message":"POST /api/users/register 400 - 10ms","timestamp":"2025-12-23T20:38:02.574Z"}
+{"email":"ildar@ildar.com","level":"info","message":"Start Validate registration data","timestamp":"2025-12-23T20:38:21.268Z","username":"nnn"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-23T20:38:21.268Z"}
+{"level":"error","message":"Registration Error:  User with this email or username already exists","stack":"Error: User with this email or username already exists\n    at registerUser (file:///app/services/userService.js:19:11)\n    at async register (file:///app/controllers/user.js:30:29)","timestamp":"2025-12-23T20:38:21.271Z"}
+{"level":"error","message":"POST /api/users/register 400 - 4ms","timestamp":"2025-12-23T20:38:21.272Z"}
+{"email":"ildar@ildar.com","level":"info","message":"Start Validate registration data","timestamp":"2025-12-23T20:38:35.114Z","username":"com"}
+{"level":"info","message":"start registration user","timestamp":"2025-12-23T20:38:35.114Z"}
+{"level":"info","message":"POST /api/users/register 201 - 157ms","timestamp":"2025-12-23T20:38:35.271Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:35.291Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-23T20:38:35.295Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:37.375Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:38:37.380Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:37.393Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-23T20:38:37.397Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-23T20:38:57.413Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-23T20:38:57.487Z"}
+{"level":"info","message":"POST /api/users/login 200 - 76ms","timestamp":"2025-12-23T20:38:57.489Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:57.510Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T20:38:57.514Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:59.606Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:38:59.610Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:59.619Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:38:59.625Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:38:59.640Z"}
+{"level":"info","message":"GET /api/books 304 - 11ms","timestamp":"2025-12-23T20:38:59.641Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:59.642Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:38:59.646Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-23T20:38:59.658Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-23T20:38:59.660Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:38:59.661Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-23T20:38:59.666Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:06.788Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-23T20:39:06.793Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:06.802Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:39:06.806Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:06.825Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-23T20:39:06.829Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:06.835Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-23T20:39:06.839Z"}
+{"level":"info","message":"POST /api/users/avatar 200 - 117ms","timestamp":"2025-12-23T20:39:11.967Z"}
+{"level":"info","message":"GET /static/avatars/448c8cad-dad3-40b1-b8ea-742d0cf7ba0d.JPEG 200 - 33ms","timestamp":"2025-12-23T20:39:12.016Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:15.458Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-23T20:39:15.464Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:15.531Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-23T20:39:15.535Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:15.544Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-23T20:39:15.554Z"}
+{"level":"info","message":"GET /static/avatars/448c8cad-dad3-40b1-b8ea-742d0cf7ba0d.JPEG 304 - 2ms","timestamp":"2025-12-23T20:39:15.570Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-23T20:39:15.576Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-23T20:39:15.580Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-25T13:12:39.440Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-25T13:13:13.154Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-25T13:13:13.265Z"}
+{"level":"info","message":"POST /api/users/login 200 - 114ms","timestamp":"2025-12-25T13:13:13.267Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:13.287Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:13:13.292Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:15.198Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:13:15.204Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:15.221Z"}
+{"level":"info","message":"GET /api/users/me 200 - 41ms","timestamp":"2025-12-25T13:13:15.250Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:13:15.251Z"}
+{"level":"info","message":"GET /api/books 304 - 41ms","timestamp":"2025-12-25T13:13:15.253Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:15.267Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:13:15.270Z"}
+{"level":"info","message":"GET /api/books 304 - 16ms","timestamp":"2025-12-25T13:13:15.273Z"}
+{"level":"info","message":"GET /api/users/me 200 - 28ms","timestamp":"2025-12-25T13:13:15.282Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:15.289Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:13:15.293Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:24.194Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:13:24.197Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:24.208Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-25T13:13:24.214Z"}
+{"level":"error","message":"POST /api/books 400 - 5ms","timestamp":"2025-12-25T13:13:38.255Z"}
+{"level":"error","message":"Create Book Error:  Book with this name already exists","stack":"Error: Book with this name already exists\n    at createBook (file:///app/services/bookService.js:17:11)\n    at async createBook (file:///app/controllers/book.js:42:21)","timestamp":"2025-12-25T13:13:46.446Z"}
+{"level":"error","message":"POST /api/books 400 - 10ms","timestamp":"2025-12-25T13:13:46.448Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:56.493Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:13:56.497Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-25T13:13:56.499Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-25T13:13:56.501Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:56.518Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:13:56.521Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:13:56.522Z"}
+{"level":"info","message":"GET /api/books 304 - 8ms","timestamp":"2025-12-25T13:13:56.524Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:56.530Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:13:56.533Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:56.538Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:13:56.540Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:57.328Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:13:57.331Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:13:57.338Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:13:57.342Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:01.233Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:14:01.239Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:14:01.241Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-25T13:14:01.243Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:01.254Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:14:01.257Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:14:01.264Z"}
+{"level":"info","message":"GET /api/books 304 - 19ms","timestamp":"2025-12-25T13:14:01.271Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:01.273Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-25T13:14:01.277Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:01.284Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:14:01.289Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:04.818Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:14:04.822Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:04.829Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:14:04.835Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:09.462Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:14:09.467Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:09.474Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:14:09.479Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:09.511Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:14:09.513Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:09.519Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:14:09.522Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:12.875Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:14:12.878Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:14:12.890Z"}
+{"level":"info","message":"GET /api/books 304 - 12ms","timestamp":"2025-12-25T13:14:12.892Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:12.892Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:14:12.897Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:14:12.901Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-25T13:14:12.903Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:12.908Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:14:12.911Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:12.916Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:14:12.920Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:16.728Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:14:16.731Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:14:16.737Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:14:16.741Z"}
+{"level":"error","message":"Create Book Error:  Book with this name already exists","stack":"Error: Book with this name already exists\n    at createBook (file:///app/services/bookService.js:17:11)\n    at async createBook (file:///app/controllers/book.js:42:21)","timestamp":"2025-12-25T13:14:23.804Z"}
+{"level":"error","message":"POST /api/books 400 - 5ms","timestamp":"2025-12-25T13:14:23.805Z"}
+{"level":"error","message":"Create Book Error:  Book with this name already exists","stack":"Error: Book with this name already exists\n    at createBook (file:///app/services/bookService.js:17:11)\n    at async createBook (file:///app/controllers/book.js:42:21)","timestamp":"2025-12-25T13:14:44.699Z"}
+{"level":"error","message":"POST /api/books 400 - 10ms","timestamp":"2025-12-25T13:14:44.701Z"}
+{"level":"info","message":"Example app listening on port 3000","timestamp":"2025-12-25T13:21:06.251Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:11.298Z"}
+{"level":"info","message":"GET /api/users/me 200 - 33ms","timestamp":"2025-12-25T13:21:11.303Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:11.312Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:21:11.316Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:11.353Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:21:11.356Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:11.364Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:21:11.368Z"}
+{"level":"error","message":"POST /api/books 400 - 6ms","timestamp":"2025-12-25T13:21:26.145Z"}
+{"level":"error","message":"Create Book Error:  Book with this name already exists","stack":"Error: Book with this name already exists\n    at createBook (file:///app/services/bookService.js:17:11)\n    at async createBook (file:///app/controllers/book.js:42:21)","timestamp":"2025-12-25T13:21:31.177Z"}
+{"level":"error","message":"POST /api/books 400 - 13ms","timestamp":"2025-12-25T13:21:31.179Z"}
+{"bookId":2,"level":"info","message":"Book created successfully","timestamp":"2025-12-25T13:21:42.858Z"}
+{"level":"info","message":"POST /api/books 201 - 32ms","timestamp":"2025-12-25T13:21:42.860Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:44.783Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-25T13:21:44.791Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:44.832Z"}
+{"level":"info","message":"GET /api/users/me 200 - 12ms","timestamp":"2025-12-25T13:21:44.840Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:44.846Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:21:44.850Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:44.855Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:21:44.859Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:44.895Z"}
+{"level":"info","message":"GET /api/books 200 - 140ms","timestamp":"2025-12-25T13:21:44.896Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:44.904Z"}
+{"level":"info","message":"GET /api/books 304 - 8ms","timestamp":"2025-12-25T13:21:44.906Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:46.024Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:21:46.028Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:46.087Z"}
+{"level":"info","message":"GET /api/users/me 200 - 63ms","timestamp":"2025-12-25T13:21:46.093Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:47.578Z"}
+{"level":"info","message":"GET /api/users/me 200 - 17ms","timestamp":"2025-12-25T13:21:47.586Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:47.592Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:21:47.596Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:47.602Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:21:47.606Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:47.616Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:21:47.620Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:47.662Z"}
+{"level":"info","message":"GET /api/books 304 - 83ms","timestamp":"2025-12-25T13:21:47.664Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:47.673Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-25T13:21:47.675Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.166Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:21:49.171Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.177Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:21:49.182Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.218Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:21:49.222Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:49.223Z"}
+{"level":"info","message":"GET /api/books 304 - 8ms","timestamp":"2025-12-25T13:21:49.225Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.240Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-25T13:21:49.246Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:21:49.251Z"}
+{"level":"info","message":"GET /api/books 304 - 20ms","timestamp":"2025-12-25T13:21:49.253Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.254Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:21:49.258Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:49.263Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:21:49.266Z"}
+{"level":"info","message":"POST /api/users/logout 200 - 2ms","timestamp":"2025-12-25T13:21:56.914Z"}
+{"level":"info","message":"Start login user","timestamp":"2025-12-25T13:21:58.494Z"}
+{"level":"info","message":"User:","timestamp":"2025-12-25T13:21:58.593Z"}
+{"level":"info","message":"POST /api/users/login 200 - 102ms","timestamp":"2025-12-25T13:21:58.595Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:21:58.615Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:21:58.619Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:22:00.502Z"}
+{"level":"info","message":"GET /api/users/me 200 - 19ms","timestamp":"2025-12-25T13:22:00.509Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:22:00.519Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:22:00.520Z"}
+{"level":"info","message":"GET /api/books 304 - 12ms","timestamp":"2025-12-25T13:22:00.522Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:22:00.523Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:22:00.537Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:22:00.539Z"}
+{"level":"info","message":"GET /api/books 304 - 15ms","timestamp":"2025-12-25T13:22:00.540Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:22:00.543Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:22:00.554Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:22:00.558Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:27:33.026Z"}
+{"level":"info","message":"GET /api/users/me 200 - 37ms","timestamp":"2025-12-25T13:27:33.030Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:49.899Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:28:49.902Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:49.911Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:28:49.916Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:56.267Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:28:56.275Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:28:56.313Z"}
+{"level":"info","message":"GET /api/books 304 - 46ms","timestamp":"2025-12-25T13:28:56.316Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:28:56.336Z"}
+{"level":"info","message":"GET /api/books 304 - 21ms","timestamp":"2025-12-25T13:28:56.340Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:56.348Z"}
+{"level":"info","message":"GET /api/users/me 200 - 65ms","timestamp":"2025-12-25T13:28:56.353Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:56.366Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:28:56.372Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:28:56.379Z"}
+{"level":"info","message":"GET /api/users/me 200 - 2748ms","timestamp":"2025-12-25T13:28:59.122Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:28.413Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:29:28.416Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.192Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:29:35.196Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.394Z"}
+{"level":"info","message":"GET /api/users/me 200 - 33ms","timestamp":"2025-12-25T13:29:35.399Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.427Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:29:35.432Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.440Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:29:35.444Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:29:35.445Z"}
+{"level":"info","message":"GET /api/books 304 - 56ms","timestamp":"2025-12-25T13:29:35.447Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.458Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:29:35.469Z"}
+{"level":"info","message":"GET /api/books 304 - 13ms","timestamp":"2025-12-25T13:29:35.470Z"}
+{"level":"info","message":"GET /api/users/me 200 - 18ms","timestamp":"2025-12-25T13:29:35.472Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:29:35.497Z"}
+{"level":"info","message":"GET /api/users/me 200 - 34ms","timestamp":"2025-12-25T13:29:35.510Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.585Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:30:06.589Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.598Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:30:06.602Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.685Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:30:06.689Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.700Z"}
+{"level":"info","message":"GET /api/users/me 200 - 11ms","timestamp":"2025-12-25T13:30:06.707Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.716Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:30:06.719Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:30:06.722Z"}
+{"level":"info","message":"GET /api/books 304 - 22ms","timestamp":"2025-12-25T13:30:06.724Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:30:06.729Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:30:06.732Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:30:06.733Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-25T13:30:06.734Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:34:34.426Z"}
+{"level":"info","message":"GET /api/users/me 200 - 22ms","timestamp":"2025-12-25T13:34:34.428Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:34:48.156Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:34:48.158Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.362Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:35:07.365Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.375Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:35:07.379Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.454Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:35:07.458Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.467Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:35:07.535Z"}
+{"level":"info","message":"GET /api/books 304 - 71ms","timestamp":"2025-12-25T13:35:07.537Z"}
+{"level":"info","message":"GET /api/users/me 200 - 78ms","timestamp":"2025-12-25T13:35:07.539Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.550Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:35:07.552Z"}
+{"level":"info","message":"GET /api/books 304 - 13ms","timestamp":"2025-12-25T13:35:07.554Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:35:07.556Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:07.564Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:35:07.567Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:08.309Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:35:08.311Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:08.317Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:35:08.321Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:09.751Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:35:09.756Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:35:09.768Z"}
+{"level":"info","message":"GET /api/books 304 - 17ms","timestamp":"2025-12-25T13:35:09.769Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:09.769Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-25T13:35:09.773Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:35:09.787Z"}
+{"level":"info","message":"GET /api/books 304 - 14ms","timestamp":"2025-12-25T13:35:09.788Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:09.795Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-25T13:35:09.799Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:35:09.811Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:35:09.816Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.778Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-25T13:36:15.783Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.793Z"}
+{"level":"info","message":"GET /api/users/me 200 - 14ms","timestamp":"2025-12-25T13:36:15.803Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.876Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:36:15.887Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:36:15.897Z"}
+{"level":"info","message":"GET /api/books 304 - 7ms","timestamp":"2025-12-25T13:36:15.898Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.899Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:36:15.903Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:36:15.906Z"}
+{"level":"info","message":"GET /api/books 304 - 6ms","timestamp":"2025-12-25T13:36:15.907Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.912Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:36:15.921Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:36:15.930Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:36:15.933Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.206Z"}
+{"level":"info","message":"GET /api/users/me 200 - 16ms","timestamp":"2025-12-25T13:37:27.211Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.220Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:37:27.224Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.301Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:37:27.304Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.317Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:37:27.322Z"}
+{"level":"info","message":"GET /api/books 304 - 18ms","timestamp":"2025-12-25T13:37:27.324Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:37:27.327Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.338Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:37:27.339Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-25T13:37:27.341Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:37:27.343Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:37:27.350Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:37:27.354Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:03.885Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:38:03.889Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:03.898Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:38:03.902Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:04.476Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:38:04.480Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:38:04.490Z"}
+{"level":"info","message":"GET /api/books 200 - 9ms","timestamp":"2025-12-25T13:38:04.492Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:04.497Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:38:04.501Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:38:04.503Z"}
+{"level":"info","message":"GET /api/books 304 - 9ms","timestamp":"2025-12-25T13:38:04.505Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:04.517Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:38:04.520Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:38:04.528Z"}
+{"level":"info","message":"GET /api/users/me 200 - 10ms","timestamp":"2025-12-25T13:38:04.534Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:47:12.076Z"}
+{"level":"info","message":"GET /api/users/me 200 - 71ms","timestamp":"2025-12-25T13:47:12.079Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:47:55.959Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:47:55.962Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:47:58.700Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:47:58.703Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:01.919Z"}
+{"level":"info","message":"GET /api/users/me 200 - 8ms","timestamp":"2025-12-25T13:48:01.923Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:01.934Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:48:01.938Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:02.009Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:48:02.013Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:02.047Z"}
+{"level":"info","message":"GET /api/users/me 200 - 32ms","timestamp":"2025-12-25T13:48:02.051Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:48:02.052Z"}
+{"level":"info","message":"GET /api/books 304 - 38ms","timestamp":"2025-12-25T13:48:02.054Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:02.062Z"}
+{"level":"info","message":"GET /api/users/me 200 - 13ms","timestamp":"2025-12-25T13:48:02.068Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:48:02.074Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:48:02.076Z"}
+{"level":"info","message":"GET /api/books 304 - 20ms","timestamp":"2025-12-25T13:48:02.077Z"}
+{"level":"info","message":"GET /api/users/me 200 - 9ms","timestamp":"2025-12-25T13:48:02.078Z"}
+{"bookId":"2","level":"info","message":"Book deleted successfully","timestamp":"2025-12-25T13:48:09.470Z"}
+{"level":"info","message":"DELETE /api/books/2 200 - 64ms","timestamp":"2025-12-25T13:48:09.471Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:31.717Z"}
+{"level":"info","message":"GET /api/users/me 200 - 22ms","timestamp":"2025-12-25T13:56:31.720Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:40.853Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:56:40.856Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.644Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:56:43.648Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.657Z"}
+{"level":"info","message":"GET /api/users/me 200 - 6ms","timestamp":"2025-12-25T13:56:43.660Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.716Z"}
+{"level":"info","message":"GET /api/users/me 200 - 29ms","timestamp":"2025-12-25T13:56:43.741Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:56:43.743Z"}
+{"level":"info","message":"GET /api/books 200 - 29ms","timestamp":"2025-12-25T13:56:43.744Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.755Z"}
+{"level":"info","limit":10,"message":"Books retrieved successfully","page":1,"search":"","timestamp":"2025-12-25T13:56:43.759Z"}
+{"level":"info","message":"GET /api/books 304 - 16ms","timestamp":"2025-12-25T13:56:43.762Z"}
+{"level":"info","message":"GET /api/users/me 200 - 15ms","timestamp":"2025-12-25T13:56:43.763Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.770Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:56:43.773Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:43.779Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T13:56:43.782Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T13:56:50.035Z"}
+{"level":"info","message":"GET /api/users/me 200 - 5ms","timestamp":"2025-12-25T13:56:50.038Z"}
+{"level":"info","message":"Get me user ID :","timestamp":"2025-12-25T14:01:02.882Z"}
+{"level":"info","message":"GET /api/users/me 200 - 7ms","timestamp":"2025-12-25T14:01:02.885Z"}
