@@ -1,5 +1,4 @@
 import axiosInstance from "@/config/axios";
-import { data } from "react-router-dom";
 
 export const loginUser = async (email, password) => {
   try {

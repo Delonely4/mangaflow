@@ -32,6 +32,7 @@ function EditMangaModal({ isOpen, book, onClose, onUpdate }) {
       setFormData({
         name: book.name || "",
         cover_img: book.cover_img || "",
+        description: book.description || "",
         status: book.status || "",
         total_chapters: book.total_chapters || 0,
         total_chapters_rus: book.total_chapters_rus || 0,
@@ -133,12 +134,11 @@ function EditMangaModal({ isOpen, book, onClose, onUpdate }) {
     setLoading(false);
 
     if (onUpdate) {
-      onUpdate(result.data.book);
+      onUpdate(result.data);
     }
 
     setTimeout(() => {
       onClose();
-      window.location.reload();
     }, 1000);
   };
 

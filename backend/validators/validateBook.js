@@ -1,14 +1,13 @@
 export const validateBookData = ({
   name,
   cover_img,
-  description,
   status,
   total_chapters,
 }) => {
-  if (!name || !cover_img || !description || !status) {
+  if (!name || !cover_img || !status) {
     return {
       isValid: false,
-      message: "Name, cover image, description and status are required",
+      message: "Name, cover image and status are required",
     };
   }
 
@@ -16,13 +15,6 @@ export const validateBookData = ({
     return {
       isValid: false,
       message: "Book name must be at least 2 characters long",
-    };
-  }
-
-  if (description.length < 10) {
-    return {
-      isValid: false,
-      message: "Description must be at least 10 characters long",
     };
   }
 

@@ -1,7 +1,7 @@
 import winston from "winston";
 
 const logFormat = winston.format.combine(
-  winston.format.timestamp({ fromat: "YYYY-MM-DD:mm:ss" }),
+  winston.format.timestamp({ format: "YYYY-MM-DD:mm:ss" }),
   winston.format.errors({ stack: true }),
   winston.format.json()
 );
