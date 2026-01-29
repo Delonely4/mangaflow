@@ -66,3 +66,4 @@
 {"level":"error","message":"POST /api/users/login 401 - 68ms","timestamp":"2025-12-26T16:38:54.020Z"}
 {"level":"error","message":"Login Error:  Invalid email or password","stack":"Error: Invalid email or password\n    at loginUser (file:///app/services/userService.js:53:11)\n    at async login (file:///app/controllers/user.js:65:29)","timestamp":"2025-12-26T16:39:12.437Z"}
 {"level":"error","message":"POST /api/users/login 401 - 3ms","timestamp":"2025-12-26T16:39:12.438Z"}
+{"level":"error","message":"POST /api/books 401 - 1ms","timestamp":"2026-01-07:10:12"}
