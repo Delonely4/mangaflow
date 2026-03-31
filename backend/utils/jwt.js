@@ -1,11 +1,12 @@
-import jwt from 'jsonwebtoken';
-
-const JWT_SECRET = process.env.JWT_SECRET || 'mangaflow_secret_key_change_this';
+import JWT from "jsonwebtoken";
+import config from "../config/config.js";
 
 export const generateToken = (userId) => {
-    return jwt.sign({ userId, timestamp: Date.now() }, JWT_SECRET, { expiresIn: '7d' });
+  return JWT.sign({ userId }, config.jwt.secret, {
+    expiresIn: config.jwt.expiresIn,
+  });
 };
 
 export const verifyToken = (token) => {
-    return jwt.verify(token, JWT_SECRET);
+  return JWT.verify(token, config.jwt.secret);
 };

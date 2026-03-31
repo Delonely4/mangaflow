@@ -1,11 +1,12 @@
-import express from 'express';
-import { register, login, protectedRoute } from '../controllers/user.js';
-import { authenticateToken } from '../middlewares/middleware.js';
+import express from "express";
+import userRoutes from "./userRoutes.js";
+import bookRoutes from "./bookRoutes.js";
+import chapterRoutes from "./chapterRoutes.js";
 
 const router = express.Router();
 
-router.post('/register', register);
-router.post('/login', login);
-router.get('/protected', authenticateToken, protectedRoute);
+router.use("/users", userRoutes);
+router.use("/books", bookRoutes);
+router.use("/chapters", chapterRoutes);
 
 export default router;

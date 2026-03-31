@@ -1,0 +1,22 @@
+.authFooter {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.authFooter__text {
+  color: var(--color-gray-400);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.authFooter__link {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

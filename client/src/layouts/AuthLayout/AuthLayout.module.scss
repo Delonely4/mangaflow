@@ -1,0 +1,121 @@
+.authLayout {
+  min-height: 100vh;
+  display: flex;
+  padding: var(--spacing-xl);
+  background: var(--gray-light);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-md);
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--spacing-sm);
+  }
+}
+
+.authLayout__content {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// .authLayout__side {
+//   position: absolute;
+//   width: 25%;
+//   min-width: 300px;
+//   margin-right: var(--spacing-xxl);
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   object-fit: cover;
+//   bottom: -20px;
+
+//   @media (max-width: 1024px) {
+//     width: 30%;
+//     min-width: 300px;
+//     margin-right: var(--spacing-xl);
+//   }
+
+//   @media (max-width: 768px) {
+//     width: 100%;
+//     min-width: auto;
+//     margin-right: 0;
+//     margin-bottom: var(--spacing-xl);
+//     height: 200px;
+//   }
+
+//   @media (max-width: 480px) {
+//     display: none;
+//   }
+// }
+
+// .authLayout__sideImage {
+//   height: 80vh;
+//   object-fit: cover;
+//   object-position: left center;
+//   filter: grayscale(100%) contrast(120%) brightness(85%)
+//     drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.2));
+//   opacity: 0.9;
+//   border-radius: var(--border-radius-md);
+//   transition: all var(--transition-slow);
+//   z-index: 1;
+
+//   @media (max-width: 1024px) {
+//     height: 70vh;
+//   }
+
+//   @media (max-width: 768px) {
+//     height: 200px;
+//     object-position: center 30%;
+//   }
+
+//   &:hover {
+//     opacity: 0.95;
+//     filter: grayscale(100%) contrast(130%) brightness(90%)
+//       drop-shadow(6px 6px 16px rgba(0, 0, 0, 0.3));
+//   }
+// }
+
+// .authLayout__sideOverlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: radial-gradient(
+//       circle at 20% 50%,
+//       transparent 30%,
+//       rgba(255, 255, 255, 0.1) 100%
+//     ),
+//     linear-gradient(90deg, transparent 70%, rgba(0, 0, 0, 0.05) 100%);
+//   mix-blend-mode: overlay;
+//   border-radius: var(--border-radius-md);
+//   pointer-events: none;
+// }
+
+.authLayout__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  z-index: 15;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}

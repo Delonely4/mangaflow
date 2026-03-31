@@ -36,13 +36,13 @@ model User {
 model Book {
   id                 Int      @id @default(autoincrement())
   name               String   @unique
-  cover_img          String
-  description        String
-  status             String
-  current_chapter    Float
-  total_chapters     Int
-  total_chapters_rus Int
-  total_chapters_eng Int
+  cover_img          String?
+  description        String?
+  status             String?
+  current_chapter    Float    @default(0)
+  total_chapters     Int      @default(0)
+  total_chapters_rus Int      @default(0)
+  total_chapters_eng Int      @default(0)
   created_at         DateTime @default(now())
   updated_at         DateTime @updatedAt
 
@@ -95,7 +95,7 @@ model Tag {
 model Character {
   id            Int      @id @default(autoincrement())
   name          String
-  description   String
+  description   String?
   character_img String?
   created_at    DateTime @default(now())
 
@@ -140,17 +140,17 @@ model BookTag {
 }
 
 model ReadedChapter {
-  id         Int      @id @default(autoincrement())
-  book_id    Int
-  user_id    Int
-  number     Float
-  language   String
-  created_at DateTime @default(now())
+  id             Int      @id @default(autoincrement())
+  book_id        Int
+  user_id        Int
+  chapter_number Float
+  language       String
+  created_at     DateTime @default(now())
 
   book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
   user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
-  @@unique([book_id, user_id, number])
+  @@unique([book_id, user_id, chapter_number])
   @@map("ReadedChapters")
 }
 
@@ -186,12 +186,12 @@ model FavoriteBook {
 }
 
 model Chapter {
-  id           Int       @id @default(autoincrement())
-  book_id      Int
-  number       Float
-  title        String?
-  release_date DateTime?
-  created_at   DateTime  @default(now())
+  id             Int       @id @default(autoincrement())
+  book_id        Int
+  chapter_number Float
+  title          String?
+  release_date   DateTime?
+  created_at     DateTime  @default(now())
 
   book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
 

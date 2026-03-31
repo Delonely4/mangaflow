@@ -1,10 +1,10 @@
-import dotenv from 'dotenv';
-import app from './app.js';
+import dotenv from "dotenv";
+import app from "./app.js";
+import config from "./config/config.js";
+import logger from "./utils/logger.js";
 
 dotenv.config();
 
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(config.port, () => {
+  logger.info(`Example app listening on port ${config.port}`);
 });

@@ -1,0 +1,43 @@
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.registerForm__alert {
+  margin-bottom: var(--spacing-md);
+}
+
+.registerForm__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.registerForm__passwordGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.registerForm__checkbox {
+  margin: var(--spacing-md) 0;
+}
+
+.registerForm__termsLink {
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.registerForm__submit {
+  width: 100%;
+}
